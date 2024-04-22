@@ -38,6 +38,9 @@ body > .animation-screen > .row > .image {
     min-height: var(--welcome-page-image-dimension);
     background-color: var(--welcome-page-image-background-color);
     border-radius: 25px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
 }
 
 /***************** Welcome Page> information-section *******************/
