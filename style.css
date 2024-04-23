@@ -1,14 +1,16 @@
 :root{
     --background-color: #FEF7FF;
-    --welcome-page-image-dimension: 150px;
+    --screen-hight-scale: 1;
+    --welcome-page-image-dimension: calc(150px * var(--screen-hight-scale));
+    --welcome-page-image-gap: calc(1rem * var(--screen-hight-scale));
     --welcome-page-image-background-color: #D0BCFF;
     --welcome-page-button-color: #6750A4;
     --welcome-page-not-text-color: #948CA0;
     --logo-background-color: #757575;
     --logo-prim-color: #BDBDBD;
     --logo-center-color: #FFFFFF;
-    --welcome-page-logo-dimensions: 8rem;
-    --logo-dimensions: 5rem;
+    --welcome-page-logo-dimensions: calc(8rem * var(--screen-hight-scale));
+    --logo-dimensions: calc(5rem * var(--screen-hight-scale));
     --font-size: 1rem;
 }
 
@@ -27,8 +29,8 @@ body {
 
 body > .animation-screen > .row{
     display: flex;
-    gap: 1rem;
-    padding: 1rem 0;
+    gap: var(--welcome-page-image-gap);
+    padding: calc(var(--welcome-page-image-gap) * 0.5) 0;
     width: 100%;
     overflow: hidden;
 }
@@ -41,6 +43,11 @@ body > .animation-screen > .row > .image {
     overflow: hidden;
     display: flex;
     align-items: flex-end;
+}
+
+body>.animation-screen>.row>.image>img{
+    min-width: var(--welcome-page-image-dimension);
+    min-height: var(--welcome-page-image-dimension);
 }
 
 /***************** Welcome Page> information-section *******************/
@@ -135,4 +142,11 @@ body>.welcome-page-buttons>.create-account {
 body>.welcome-page-buttons>.login:hover,
 body>.welcome-page-buttons>.create-account:hover{
     filter: brightness(0.9);
+}
+
+/***************** laptop screens media query styles ****************/
+@media screen and (max-height: 900px ) {
+    :root{
+        /* --screen-hight-scale: 1; */
+    }
 }
