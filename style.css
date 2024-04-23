@@ -14,6 +14,10 @@
     --font-size: 1rem;
 }
 
+html{
+    font-size: 16px;
+}
+
 *, *::before, *::after{
     box-sizing: border-box;
     margin: 0;
@@ -27,32 +31,72 @@ body {
 
 /************************ Welcome Page > animation-screen*****************************/
 
+body>.animation-screen{
+    width: 100vw;
+}
+
 body > .animation-screen > .row{
     display: flex;
     gap: var(--welcome-page-image-gap);
     padding: calc(var(--welcome-page-image-gap) * 0.5) 0;
-    width: 100%;
+    height: calc(var(--welcome-page-image-dimension) + (var(--welcome-page-image-gap)));
+    width: 100vw;
     overflow: hidden;
+    position: relative;
 }
 
 body > .animation-screen > .row > .image {
     min-width: var(--welcome-page-image-dimension);
     min-height: var(--welcome-page-image-dimension);
+    max-width: var(--welcome-page-image-dimension);
+    max-height: var(--welcome-page-image-dimension);
     background-color: var(--welcome-page-image-background-color);
     border-radius: 25px;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
+    position: absolute;
 }
 
 body>.animation-screen>.row>.image>img{
     min-width: var(--welcome-page-image-dimension);
     min-height: var(--welcome-page-image-dimension);
+    max-width: var(--welcome-page-image-dimension);
+    max-height: var(--welcome-page-image-dimension);
+}
+
+body>.animation-screen>.row>.scroll-left{
+    animation: scrollLeft 40s linear infinite;
+}
+
+body>.animation-screen>.row>.scroll-right{
+    animation: scrollRight 40s linear infinite;
+}
+
+@keyframes scrollLeft {
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform: translateX(calc(-1 * (var(--welcome-page-image-gap) * 14 + var(--welcome-page-image-dimension) * 15)));
+    }
+}
+
+@keyframes scrollRight {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc((var(--welcome-page-image-gap) * 14 + var(--welcome-page-image-dimension) * 15)));
+    }
 }
 
 /***************** Welcome Page> information-section *******************/
 
 body > .information-section {
+    width: 100vw;
     position: relative;
     top: calc(var(--welcome-page-logo-dimensions) * -0.4);
 }
@@ -85,6 +129,7 @@ body > .information-section > .logo > .center-triangular {
 
 body > .information-section> .logo-title,
 body>.information-section>.welcome-page-title {
+    width: fit-content;
     position: relative;
     left: calc(50% - var(--font-size) * 3);
     font-size: calc(var(--font-size) * 2);
@@ -96,6 +141,8 @@ body>.information-section>.welcome-page-title{
     width: fit-content;
     transform: translateX(-50%);
     padding: calc(var(--font-size) * 0.5);
+    padding: 0 10vw;
+    text-align: center;
 }
 
 body>.information-section>.welcome-page-note-title {
@@ -105,16 +152,18 @@ body>.information-section>.welcome-page-note-title {
     width: fit-content;
     transform: translateX(-50%);
     color: var(--welcome-page-not-text-color);
+    padding: 0 10vw;
+    text-align: center;
 }
 
 body>.welcome-page-buttons{
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    min-width: 31rem;
+    width: 40vw;
     position: relative;
-    left: 50%;
-    min-width: fit-content;
-    width: 40%;
+    left: 50vw;
     transform: translateX(-50%);
 }
 
@@ -144,9 +193,32 @@ body>.welcome-page-buttons>.create-account:hover{
     filter: brightness(0.9);
 }
 
+body>.welcome-page-buttons>.login:active,
+body>.welcome-page-buttons>.create-account:active {
+    filter: brightness(0.8);
+}
+
 /***************** laptop screens media query styles ****************/
-@media screen and (max-height: 900px ) {
-    :root{
-        /* --screen-hight-scale: 1; */
+@media screen and (max-Width: 700px ) {
+    html{
+        line-height: 1.8rem;
+    }
+
+    body>.welcome-page-buttons {
+        gap: 1rem;
+        min-width: 80vw;
+        width: 80vw;
+    }
+
+    body>.welcome-page-buttons>.login,
+    body>.welcome-page-buttons>.create-account {
+        min-width: 80vw;
+        width: 80vw;
+        padding: 0.5rem;
+        }
+
+    body>.welcome-page-buttons {
+        position: relative;
+        top: calc(var(--welcome-page-logo-dimensions) * -0.2);
     }
 }
