@@ -1,0 +1,226 @@
+:root {
+    --create-account-page-logo-dimensions: calc(6rem * var(--screen-hight-scale));
+    --input-field-background-color: #E7E0E8;
+}
+
+/****************** create-account-logo-section ******************/
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-logo-section {
+    padding: 3rem;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-logo-section>.logo {
+    background-color: var(--logo-background-color);
+    border-radius: 50%;
+    width: var(--create-account-page-logo-dimensions);
+    height: var(--create-account-page-logo-dimensions);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-logo-section>.logo>.center-rectangular {
+    position: absolute;
+    background-color: var(--logo-prim-color);
+    width: var(--create-account-page-logo-dimensions);
+    height: var(--create-account-page-logo-dimensions);
+    clip-path: polygon(15% 15%, 85% 15%, 85% 85%, 15% 85%);
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-logo-section>.logo>.center-triangular {
+    position: absolute;
+    background-color: var(--logo-center-color);
+    width: var(--create-account-page-logo-dimensions);
+    height: var(--create-account-page-logo-dimensions);
+    clip-path: polygon(15% 15%, 50% 85%, 85% 15%);
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-logo-section>.logo-title {
+    width: fit-content;
+    position: relative;
+    left: calc(50% - var(--font-size) * 3);
+    font-size: calc(var(--font-size) * 2);
+    padding: calc(var(--font-size));
+}
+
+/***************** create-account-cards ***************************/
+
+body>.create-account-cards-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row-reverse;
+    overflow-x: auto;
+    z-index: 99999;
+}
+
+/* body>.create-account-cards-container::-webkit-scrollbar{
+    background-color: #fff;
+    z-index: 99999;
+} */
+
+body>.create-account-cards-container>.create-account-card-container {
+    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card {
+    max-width: 25rem;
+    background-color: #fff;
+    z-index: 99999;
+    border-radius: 30px;
+    background-color: var(--background-color);
+}
+
+body>.create-account-cards-container>.create-account-card-container>.first-create-account-card {
+
+}
+
+body>.create-account-cards-container>.create-account-card-container>.second-create-account-card {
+
+}
+
+body>.create-account-cards-container>.create-account-card-container>.third-create-account-card {
+
+}
+
+/**************** create-account-form-section ********************/
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section {
+    padding: 0 1rem;
+    font-size: calc(var(--font-size) * 1);
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.form-title {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1rem;
+    align-items: center;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.form-title>.material-symbols-outlined {
+    font-size: calc(var(--font-size)* 1.5);
+    color: #fff;
+    padding: 0.7rem;
+    background-color: var(--button-color);
+    border-radius: 50%;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.form-title>.text {
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.country-and-city-input-container{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1rem;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.input-container,
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.country-and-city-input-container>.input-container{
+    min-width: calc(50%-0.5rem);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    position: relative;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.input-container>.material-symbols-outlined,
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.country-and-city-input-container>.input-container>.material-symbols-outlined {
+    position: absolute;
+    right: 0.5rem;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.input-container>input,
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.input-container>select,
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.country-and-city-input-container>.input-container>input,
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.country-and-city-input-container>.input-container>select {
+    font-size: inherit;
+    background-color: #E7E0E8;
+    border: none;
+    border-bottom: 1px solid #000;
+    min-width: calc(50% - 0.5rem);
+    text-align: right;
+    width: 100%;
+    padding: 1rem 3rem;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.input-container>input:focus,
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.input-container>select:focus,
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.country-and-city-input-container>.input-container>input:focus,
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.country-and-city-input-container>.input-container>select:focus{
+    outline: none;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.input-container>select,
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.country-and-city-input-container>.input-container>select {
+    color: #606060;
+    cursor: pointer;
+    /* for Firefox */
+        -moz-appearance: none;
+        /* for Chrome */
+        -webkit-appearance: none;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.input-container>select::-ms-expand,
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.country-and-city-input-container>.input-container>select::-ms-expand {
+    display: none;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.input-container>input::-webkit-outer-spin-button,
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.input-container>input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.input-container>input[type=number] {
+    -moz-appearance: textfield;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.form-buttons-container{
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.form-buttons-container>.next-btn,
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.form-buttons-container>.back-btn {
+    font-size: calc(var(--font-size) * 0.9);
+    border: none;
+    width: calc(50% - 0.5rem);
+    padding: 0.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.form-buttons-container>.next-btn:hover,
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.form-buttons-container>.back-btn:hover{
+    filter: brightness(0.8);
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.form-buttons-container>.next-btn:active,
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.form-buttons-container>.back-btn:active {
+    filter: brightness(0.9);
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.form-buttons-container>.next-btn{
+    background-color: var(--next-btn-background-color);
+    color: #fff;
+}
+
+body>.create-account-cards-container>.create-account-card-container>.create-account-card>.create-account-form-section>.information>.form-buttons-container>.back-btn {
+    color: var(--next-btn-background-color);
+    background-color: var(--back-btn-background-color);
+}

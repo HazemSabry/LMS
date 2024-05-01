@@ -1,11 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create-Account</title>
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="createAccountPage.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap" rel="stylesheet">
+    <script src="common.js" defer></script>
+    <script src="createAccountPage.js" defer></script>
 </head>
+
 <body>
-    
+    <div class="create-account-cards-container">
+        <div class="create-account-card-container">
+            <div class="create-account-card first-create-account-card">
+                <section class="create-account-logo-section">
+                    <div class="logo">
+                        <div class="center-rectangular"></div>
+                        <div class="center-triangular"></div>
+                    </div>
+                    <p class="logo-title">LMS</p>
+                </section>
+                <section class="create-account-form-section">
+                    <p class="form-title">
+                        <span class="material-symbols-outlined"> account_circle </span>
+                        <span class="text" lang="ar">المعلومات الشخصية</span>
+                    </p>
+                    <form class="information">
+                        <div class="input-container">
+                            <span class="material-symbols-outlined">
+                                person
+                            </span>
+                            <input type="text" lang="ar" placeholder="الاسم بالكامل" required />
+                        </div>
+                        <div class="input-container">
+                            <span class="material-symbols-outlined">
+                                badge
+                            </span>
+                            <input type="number" lang="ar" placeholder="الرقم القومي" required />
+                        </div>
+                        <div class="input-container">
+                            <span class="material-symbols-outlined">
+                                wc
+                            </span>
+                            <select name="gender" id="select-genter" title="Select your gender" required>
+                                <option value="male" lang="ar">ذكر</option>
+                                <option value="female" lang="ar">أنثى</option>
+                            </select>
+                        </div>
+                        <div class="country-and-city-input-container">
+                            <div class="input-container">
+                                <span class="material-symbols-outlined">
+                                    public
+                                </span>
+                                <input type="text" lang="ar" disabled placeholder="مصر" required />
+                            </div>
+                            <div class="input-container">
+                                <select name="city" id="select-city" lang="ar" title="المحافظة" required>
+                                    <option value="" lang="ar" disabled selected>المحافظة</option>
+                                    <option value="Cairo" lang="ar">الاقاهرة</option>
+                                    <option value="Giza" lang="ar">الجيزة</option>
+                                    <option value="Alexandria" lang="ar">الاسكندرية</option>
+                                    <option value="Albhira" lang="ar">البحيرة</option>
+                                    <option value="Ismailia" lang="ar">الإسماعيلية</option>
+                                    <option value="Aswan" lang="ar">أسوان</option>
+                                    <option value="Asyut" lang="ar">أسيوط</option>
+                                    <option value="the shortest" lang="ar">الأقصر</option>
+                                    <option value="The Red Sea" lang="ar">البحر الاحمر</option>
+                                    <option value="Bani Sweif" lang="ar">بني سويف</option>
+                                    <option value="Port Said" lang="ar">بورسعيد</option>
+                                    <option value="South of Sinaa" lang="ar">جنوب سيناء</option>
+                                    <option value="Dakahlia" lang="ar">الدقهلية</option>
+                                    <option value="Damietta" lang="ar">دمياط</option>
+                                    <option value="Sohag" lang="ar">سوهاج</option>
+                                    <option value="Suez" lang="ar">السويس</option>
+                                    <option value="Eastern" lang="ar">الشرقية</option>
+                                    <option value="North Sinai" lang="ar">شمال سيناء</option>
+                                    <option value="Western" lang="ar">الغربية</option>
+                                    <option value="Fayoum" lang="ar">الفيوم</option>
+                                    <option value="Qalyubia" lang="ar">القليوبية</option>
+                                    <option value="Qena" lang="ar">قنا</option>
+                                    <option value="Kafr El-Sheikh" lang="ar">كفر الشيخ</option>
+                                    <option value="Matroh" lang="ar">مطروح</option>
+                                    <option value="Menoufia" lang="ar">المنوفية</option>
+                                    <option value="Minya" lang="ar">المنيا</option>
+                                    <option value="the new Valley" lang="ar">الوادي الجديد</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <span class="material-symbols-outlined">
+                                location_on
+                            </span>
+                            <input type="text" lang="ar" placeholder="العنوان بالتفصيل" required />
+                        </div>
+                        <div class="form-buttons-container">
+                            <button type="submit" class="next-btn" lang="ar">التالي</button>
+                            <button type="button" class="back-btn" lang="ar">رجوع</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+        <div class="create-account-card-container">
+            <div class="create-account-card first-create-account-card">
+                <section class="create-account-logo-section">
+                    <div class="logo">
+                        <div class="center-rectangular"></div>
+                        <div class="center-triangular"></div>
+                    </div>
+                    <p class="logo-title">LMS</p>
+                </section>
+                <section class="create-account-form-section">
+                    <p class="form-title">
+                        <span class="material-symbols-outlined"> account_circle </span>
+                        <span class="text" lang="ar">المعلومات الشخصية</span>
+                    </p>
+                    <form class="information">
+                        <div class="input-container">
+                            <input type="text" lang="ar" placeholder="الاسم بالكامل" required />
+                        </div>
+                        <div class="input-container">
+                            <input type="number" lang="ar" placeholder="الرقم القومي" required />
+                        </div>
+                        <div class="input-container">
+                            <select name="gender" id="select-genter" title="Select your gender" required>
+                                <option value="male" lang="ar">ذكر</option>
+                                <option value="female" lang="ar">أنثى</option>
+                            </select>
+                        </div>
+                        <div class="country-and-city-input-container">
+                            <div class="input-container">
+                                <input type="text" lang="ar" disabled placeholder="مصر" required />
+                            </div>
+                            <div class="input-container">
+                                <select name="city" id="select-city" lang="ar" title="المحافظة" required>
+                                    <option value="" lang="ar" disabled selected>المحافظة</option>
+                                    <option value="Cairo" lang="ar">الاقاهرة</option>
+                                    <option value="Giza" lang="ar">الجيزة</option>
+                                    <option value="Alexandria" lang="ar">الاسكندرية</option>
+                                    <option value="Albhira" lang="ar">البحيرة</option>
+                                    <option value="Ismailia" lang="ar">الإسماعيلية</option>
+                                    <option value="Aswan" lang="ar">أسوان</option>
+                                    <option value="Asyut" lang="ar">أسيوط</option>
+                                    <option value="the shortest" lang="ar">الأقصر</option>
+                                    <option value="The Red Sea" lang="ar">البحر الاحمر</option>
+                                    <option value="Bani Sweif" lang="ar">بني سويف</option>
+                                    <option value="Port Said" lang="ar">بورسعيد</option>
+                                    <option value="South of Sinaa" lang="ar">جنوب سيناء</option>
+                                    <option value="Dakahlia" lang="ar">الدقهلية</option>
+                                    <option value="Damietta" lang="ar">دمياط</option>
+                                    <option value="Sohag" lang="ar">سوهاج</option>
+                                    <option value="Suez" lang="ar">السويس</option>
+                                    <option value="Eastern" lang="ar">الشرقية</option>
+                                    <option value="North Sinai" lang="ar">شمال سيناء</option>
+                                    <option value="Western" lang="ar">الغربية</option>
+                                    <option value="Fayoum" lang="ar">الفيوم</option>
+                                    <option value="Qalyubia" lang="ar">القليوبية</option>
+                                    <option value="Qena" lang="ar">قنا</option>
+                                    <option value="Kafr El-Sheikh" lang="ar">كفر الشيخ</option>
+                                    <option value="Matroh" lang="ar">مطروح</option>
+                                    <option value="Menoufia" lang="ar">المنوفية</option>
+                                    <option value="Minya" lang="ar">المنيا</option>
+                                    <option value="the new Valley" lang="ar">الوادي الجديد</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" lang="ar" placeholder="العنوان بالتفصيل" required />
+                        </div>
+                        <div class="form-buttons-container">
+                            <button type="button" class="next-btn" lang="ar">التالي</button>
+                            <button type="button" class="back-btn" lang="ar">رجوع</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+        <div class="create-account-card-container">
+            <div class="create-account-card first-create-account-card">
+                <section class="create-account-logo-section">
+                    <div class="logo">
+                        <div class="center-rectangular"></div>
+                        <div class="center-triangular"></div>
+                    </div>
+                    <p class="logo-title">LMS</p>
+                </section>
+                <section class="create-account-form-section">
+                    <p class="form-title">
+                        <span class="material-symbols-outlined"> account_circle </span>
+                        <span class="text" lang="ar">المعلومات الشخصية</span>
+                    </p>
+                    <form class="information">
+                        <div class="input-container">
+                            <input type="text" lang="ar" placeholder="الاسم بالكامل" required />
+                        </div>
+                        <div class="input-container">
+                            <input type="number" lang="ar" placeholder="الرقم القومي" required />
+                        </div>
+                        <div class="input-container">
+                            <select name="gender" id="select-genter" title="Select your gender" required>
+                                <option value="male" lang="ar">ذكر</option>
+                                <option value="female" lang="ar">أنثى</option>
+                            </select>
+                        </div>
+                        <div class="country-and-city-input-container">
+                            <div class="input-container">
+                                <input type="text" lang="ar" disabled placeholder="مصر" required />
+                            </div>
+                            <div class="input-container">
+                                <select name="city" id="select-city" lang="ar" title="المحافظة" required>
+                                    <option value="" lang="ar" disabled selected>المحافظة</option>
+                                    <option value="Cairo" lang="ar">الاقاهرة</option>
+                                    <option value="Giza" lang="ar">الجيزة</option>
+                                    <option value="Alexandria" lang="ar">الاسكندرية</option>
+                                    <option value="Albhira" lang="ar">البحيرة</option>
+                                    <option value="Ismailia" lang="ar">الإسماعيلية</option>
+                                    <option value="Aswan" lang="ar">أسوان</option>
+                                    <option value="Asyut" lang="ar">أسيوط</option>
+                                    <option value="the shortest" lang="ar">الأقصر</option>
+                                    <option value="The Red Sea" lang="ar">البحر الاحمر</option>
+                                    <option value="Bani Sweif" lang="ar">بني سويف</option>
+                                    <option value="Port Said" lang="ar">بورسعيد</option>
+                                    <option value="South of Sinaa" lang="ar">جنوب سيناء</option>
+                                    <option value="Dakahlia" lang="ar">الدقهلية</option>
+                                    <option value="Damietta" lang="ar">دمياط</option>
+                                    <option value="Sohag" lang="ar">سوهاج</option>
+                                    <option value="Suez" lang="ar">السويس</option>
+                                    <option value="Eastern" lang="ar">الشرقية</option>
+                                    <option value="North Sinai" lang="ar">شمال سيناء</option>
+                                    <option value="Western" lang="ar">الغربية</option>
+                                    <option value="Fayoum" lang="ar">الفيوم</option>
+                                    <option value="Qalyubia" lang="ar">القليوبية</option>
+                                    <option value="Qena" lang="ar">قنا</option>
+                                    <option value="Kafr El-Sheikh" lang="ar">كفر الشيخ</option>
+                                    <option value="Matroh" lang="ar">مطروح</option>
+                                    <option value="Menoufia" lang="ar">المنوفية</option>
+                                    <option value="Minya" lang="ar">المنيا</option>
+                                    <option value="the new Valley" lang="ar">الوادي الجديد</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" lang="ar" placeholder="العنوان بالتفصيل" required />
+                        </div>
+                        <div class="form-buttons-container">
+                            <button type="button" class="next-btn" lang="ar">التالي</button>
+                            <button type="button" class="back-btn" lang="ar">رجوع</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

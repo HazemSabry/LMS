@@ -1,32 +1,11 @@
-:root{
-    --background-color: #FEF7FF;
-    --screen-hight-scale: 1;
+:root {
+    --num-of-welcome-page-image: 12;
+    --num-of-gaps-between-welcome-page-image: calc(var(--num-of-welcome-page-image) - 1);
     --welcome-page-image-dimension: calc(150px * var(--screen-hight-scale));
     --welcome-page-image-gap: calc(1rem * var(--screen-hight-scale));
-    --welcome-page-image-background-color: #D0BCFF;
-    --welcome-page-button-color: #6750A4;
-    --welcome-page-not-text-color: #948CA0;
-    --logo-background-color: #757575;
-    --logo-prim-color: #BDBDBD;
-    --logo-center-color: #FFFFFF;
+    --welcome-page-note-text-color: #948CA0;
     --welcome-page-logo-dimensions: calc(8rem * var(--screen-hight-scale));
-    --logo-dimensions: calc(5rem * var(--screen-hight-scale));
-    --font-size: 1rem;
-}
-
-html{
-    font-size: 16px;
-}
-
-*, *::before, *::after{
-    box-sizing: border-box;
-    margin: 0;
-}
-
-body {
-    min-height: 100vh;
-    width: 100vw;
-    overflow-x: hidden;
+    --welcome-page-image-animation-duration: 60s;
 }
 
 /************************ Welcome Page > animation-screen*****************************/
@@ -66,11 +45,11 @@ body>.animation-screen>.row>.image>img{
 }
 
 body>.animation-screen>.row>.scroll-left{
-    animation: scrollLeft 40s linear infinite;
+    animation: scrollLeft var(--welcome-page-image-animation-duration) linear infinite;
 }
 
 body>.animation-screen>.row>.scroll-right{
-    animation: scrollRight 40s linear infinite;
+    animation: scrollRight var(--welcome-page-image-animation-duration) linear infinite;
 }
 
 @keyframes scrollLeft {
@@ -79,7 +58,7 @@ body>.animation-screen>.row>.scroll-right{
     }
 
     to{
-        transform: translateX(calc(-1 * (var(--welcome-page-image-gap) * 14 + var(--welcome-page-image-dimension) * 15)));
+        transform: translateX(calc(-1 * (var(--welcome-page-image-gap) * var(--num-of-gaps-between-welcome-page-image) + var(--welcome-page-image-dimension) * var(--num-of-welcome-page-image))));
     }
 }
 
@@ -89,7 +68,7 @@ body>.animation-screen>.row>.scroll-right{
     }
 
     to {
-        transform: translateX(calc((var(--welcome-page-image-gap) * 14 + var(--welcome-page-image-dimension) * 15)));
+        transform: translateX(calc((var(--welcome-page-image-gap) * var(--num-of-gaps-between-welcome-page-image) + var(--welcome-page-image-dimension) * var(--num-of-welcome-page-image))));
     }
 }
 
@@ -151,7 +130,7 @@ body>.information-section>.welcome-page-note-title {
     left:50%;
     width: fit-content;
     transform: translateX(-50%);
-    color: var(--welcome-page-not-text-color);
+    color: var(--welcome-page-note-text-color);
     padding: 0 10vw;
     text-align: center;
 }
@@ -175,16 +154,16 @@ body>.welcome-page-buttons>.create-account{
     padding: 0.5rem;;
     border-radius:50px ;
     cursor: pointer;
-    border: 1px solid var(--welcome-page-button-color);
+    border: 1px solid var(--button-color);
 }
 
 body>.welcome-page-buttons > .login{
-    background-color: var(--welcome-page-button-color);
+    background-color: var(--button-color);
     color: var(--background-color);
 }
 
 body>.welcome-page-buttons>.create-account {
-    color: var(--welcome-page-button-color);
+    color: var(--button-color);
     background-color: var(--background-color);
 }
 
@@ -221,4 +200,43 @@ body>.welcome-page-buttons>.create-account:active {
         position: relative;
         top: calc(var(--welcome-page-logo-dimensions) * -0.2);
     }
+}
+
+/***************** Create Account Page> create-account-logo-section *******************/
+body>.create-account-logo-section >{
+
+}
+
+body>.create-account-logo-section>.logo {
+    background-color: var(--logo-background-color);
+    border-radius: 50%;
+    width: var(--welcome-page-logo-dimensions);
+    height: var(--welcome-page-logo-dimensions);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+body>.create-account-logo-section>.logo>.center-rectangular {
+    position: absolute;
+    background-color: var(--logo-prim-color);
+    width: var(--welcome-page-logo-dimensions);
+    height: var(--welcome-page-logo-dimensions);
+    clip-path: polygon(15% 15%, 85% 15%, 85% 85%, 15% 85%);
+}
+
+body>.create-account-logo-section>.logo>.center-triangular {
+    position: absolute;
+    background-color: var(--logo-center-color);
+    width: var(--welcome-page-logo-dimensions);
+    height: var(--welcome-page-logo-dimensions);
+    clip-path: polygon(15% 15%, 50% 85%, 85% 15%);
+}
+
+body>.create-account-logo-section>.logo-title {
+    width: fit-content;
+    position: relative;
+    left: calc(50% - var(--font-size) * 3);
+    font-size: calc(var(--font-size) * 2);
+    padding: calc(var(--font-size));
 }

@@ -1,0 +1,76 @@
+:root {
+    --background-color: #FEF7FF;
+    --screen-hight-scale: 1;
+    --welcome-page-image-dimension: calc(150px * var(--screen-hight-scale));
+    --welcome-page-image-gap: calc(1rem * var(--screen-hight-scale));
+    --welcome-page-image-background-color: #D0BCFF;
+    --button-color: #6750A4;
+    --welcome-page-not-text-color: #948CA0;
+    --logo-background-color: #757575;
+    --logo-prim-color: #BDBDBD;
+    --logo-center-color: #FFFFFF;
+    --welcome-page-logo-dimensions: calc(8rem * var(--screen-hight-scale));
+    --font-size: 1rem;
+    --welcome-page-image-animation-duration: 60s;
+    --background-image-dimension: 150px;
+    --number-of-background-images-per-row:15;
+    --next-btn-background-color:#6750A4;
+    --back-btn-background-color: #EADDFF;
+}
+
+html {
+    font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Alexandria", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+/************* Background Moving Images ****************/
+body>.background-moving-images{
+    width: 100vw;
+    max-height: "100vh";
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: "none";
+    background-color: rgba(0, 0, 0, 0.725);
+    filter: blur(3.5px);
+}
+
+body>.background-moving-images>.background-moving-images-row{
+    pointer-events: none;
+    position: relative;
+    height: var(--background-image-dimension);
+    width: 100vw;
+}
+
+body>.background-moving-images>.background-moving-images-row>.background-image{
+    min-width: var(--background-image-dimension);
+    max-width: var(--background-image-dimension);
+    min-height: var(--background-image-dimension);
+    max-height: var(--background-image-dimension);
+    position: absolute;
+    filter: brightness(80%);
+}
+
+@keyframes backgroundImageScrollLeft {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-1 * var(--background-image-dimension) * var(--number-of-background-images-per-row)));
+    }
+}
