@@ -1,8 +1,17 @@
-const screenHightScale = screen.height / 1050;
 const root = document.documentElement;
+const html = document.documentElement;
+
+const MAX_MOBILE_SCREEN_WIDTH = 950;
 
 function initialize() {
-    root.style.setProperty("--screen-hight-scale", screenHightScale);
+    const screenHightScale = screen.height / 1050;
+    const screenWidthScale = screen.width / 1680;
+    const screenScale = (screenWidthScale > screenHightScale) ? screenWidthScale : screenHightScale;
+    root.style.setProperty("--screen-scale", screenScale);
+
+    if (screen.width < MAX_MOBILE_SCREEN_WIDTH) {
+        html.style.fontSize = "16px";
+    }
 }
 
 function createBackgroundMovingImages() {

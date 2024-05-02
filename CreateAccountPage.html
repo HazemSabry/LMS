@@ -17,9 +17,15 @@
 </head>
 
 <body>
-    <div class="create-account-cards-container">
-        <div class="create-account-card-container">
-            <div class="create-account-card first-create-account-card">
+    <header class="page-header" id="page-header">
+        <div class="page-title" lang="ar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                <path
+                    d="M11.293 4.707 17.586 11H4v2h13.586l-6.293 6.293 1.414 1.414L21.414 12l-8.707-8.707-1.414 1.414z" />
+            </svg>انشاء حساب جديد</div>
+    </header>
+    <div class="create-account-or-login-cards-container" id="create-account-or-login-cards-container">
+        <div class="create-account-or-login-card-container">
+            <div class="create-account-or-login-card">
                 <section class="create-account-logo-section">
                     <div class="logo">
                         <div class="center-rectangular"></div>
@@ -27,26 +33,26 @@
                     </div>
                     <p class="logo-title">LMS</p>
                 </section>
-                <section class="create-account-form-section">
+                <section class="create-account-or-login-form-section">
                     <p class="form-title">
-                        <span class="material-symbols-outlined"> account_circle </span>
+                        <span class="material-symbols-outlined" lang="en"> account_circle </span>
                         <span class="text" lang="ar">المعلومات الشخصية</span>
                     </p>
                     <form class="information">
                         <div class="input-container">
-                            <span class="material-symbols-outlined">
+                            <span class="material-symbols-outlined" lang="en">
                                 person
                             </span>
                             <input type="text" lang="ar" placeholder="الاسم بالكامل" required />
                         </div>
                         <div class="input-container">
-                            <span class="material-symbols-outlined">
+                            <span class="material-symbols-outlined" lang="en">
                                 badge
                             </span>
                             <input type="number" lang="ar" placeholder="الرقم القومي" required />
                         </div>
                         <div class="input-container">
-                            <span class="material-symbols-outlined">
+                            <span class="material-symbols-outlined" lang="en">
                                 wc
                             </span>
                             <select name="gender" id="select-genter" title="Select your gender" required>
@@ -56,7 +62,7 @@
                         </div>
                         <div class="country-and-city-input-container">
                             <div class="input-container">
-                                <span class="material-symbols-outlined">
+                                <span class="material-symbols-outlined" lang="en">
                                     public
                                 </span>
                                 <input type="text" lang="ar" disabled placeholder="مصر" required />
@@ -95,7 +101,7 @@
                             </div>
                         </div>
                         <div class="input-container">
-                            <span class="material-symbols-outlined">
+                            <span class="material-symbols-outlined" lang="en">
                                 location_on
                             </span>
                             <input type="text" lang="ar" placeholder="العنوان بالتفصيل" required />
@@ -108,8 +114,8 @@
                 </section>
             </div>
         </div>
-        <div class="create-account-card-container">
-            <div class="create-account-card first-create-account-card">
+        <div class="create-account-or-login-card-container">
+            <div class="create-account-or-login-card">
                 <section class="create-account-logo-section">
                     <div class="logo">
                         <div class="center-rectangular"></div>
@@ -117,63 +123,47 @@
                     </div>
                     <p class="logo-title">LMS</p>
                 </section>
-                <section class="create-account-form-section">
+                <section class="create-account-or-login-form-section">
                     <p class="form-title">
-                        <span class="material-symbols-outlined"> account_circle </span>
-                        <span class="text" lang="ar">المعلومات الشخصية</span>
+                        <span class="material-symbols-outlined" lang="en"> call </span>
+                        <span class="text" lang="ar">معلومات الاتصال</span>
                     </p>
                     <form class="information">
                         <div class="input-container">
-                            <input type="text" lang="ar" placeholder="الاسم بالكامل" required />
+                            <span class="material-symbols-outlined" lang="en">
+                                alternate_email
+                            </span>
+                            <input type="gmail" lang="ar" placeholder="البريد الالكتروني" required />
                         </div>
                         <div class="input-container">
-                            <input type="number" lang="ar" placeholder="الرقم القومي" required />
+                            <span class="material-symbols-outlined" lang="en">
+                                call
+                            </span>
+                            <input type="number" lang="ar" placeholder="رقم الهاتف (الطالب)" required />
                         </div>
                         <div class="input-container">
-                            <select name="gender" id="select-genter" title="Select your gender" required>
-                                <option value="male" lang="ar">ذكر</option>
-                                <option value="female" lang="ar">أنثى</option>
-                            </select>
-                        </div>
-                        <div class="country-and-city-input-container">
-                            <div class="input-container">
-                                <input type="text" lang="ar" disabled placeholder="مصر" required />
-                            </div>
-                            <div class="input-container">
-                                <select name="city" id="select-city" lang="ar" title="المحافظة" required>
-                                    <option value="" lang="ar" disabled selected>المحافظة</option>
-                                    <option value="Cairo" lang="ar">الاقاهرة</option>
-                                    <option value="Giza" lang="ar">الجيزة</option>
-                                    <option value="Alexandria" lang="ar">الاسكندرية</option>
-                                    <option value="Albhira" lang="ar">البحيرة</option>
-                                    <option value="Ismailia" lang="ar">الإسماعيلية</option>
-                                    <option value="Aswan" lang="ar">أسوان</option>
-                                    <option value="Asyut" lang="ar">أسيوط</option>
-                                    <option value="the shortest" lang="ar">الأقصر</option>
-                                    <option value="The Red Sea" lang="ar">البحر الاحمر</option>
-                                    <option value="Bani Sweif" lang="ar">بني سويف</option>
-                                    <option value="Port Said" lang="ar">بورسعيد</option>
-                                    <option value="South of Sinaa" lang="ar">جنوب سيناء</option>
-                                    <option value="Dakahlia" lang="ar">الدقهلية</option>
-                                    <option value="Damietta" lang="ar">دمياط</option>
-                                    <option value="Sohag" lang="ar">سوهاج</option>
-                                    <option value="Suez" lang="ar">السويس</option>
-                                    <option value="Eastern" lang="ar">الشرقية</option>
-                                    <option value="North Sinai" lang="ar">شمال سيناء</option>
-                                    <option value="Western" lang="ar">الغربية</option>
-                                    <option value="Fayoum" lang="ar">الفيوم</option>
-                                    <option value="Qalyubia" lang="ar">القليوبية</option>
-                                    <option value="Qena" lang="ar">قنا</option>
-                                    <option value="Kafr El-Sheikh" lang="ar">كفر الشيخ</option>
-                                    <option value="Matroh" lang="ar">مطروح</option>
-                                    <option value="Menoufia" lang="ar">المنوفية</option>
-                                    <option value="Minya" lang="ar">المنيا</option>
-                                    <option value="the new Valley" lang="ar">الوادي الجديد</option>
-                                </select>
-                            </div>
+                            <span class="material-symbols-outlined" lang="en">
+                                call
+                            </span>
+                            <input type="number" lang="ar" placeholder="رقم الوتس (الطالب)" required />
                         </div>
                         <div class="input-container">
-                            <input type="text" lang="ar" placeholder="العنوان بالتفصيل" required />
+                            <span class="material-symbols-outlined" lang="en">
+                                deskphone
+                            </span>
+                            <input type="number" lang="ar" placeholder="رقم هاتف المنزل" required />
+                        </div>
+                        <div class="input-container">
+                            <span class="material-symbols-outlined" lang="en">
+                                call
+                            </span>
+                            <input type="number" lang="ar" placeholder="رقم هاتف (والد الطالب)" required />
+                        </div>
+                        <div class="input-container">
+                            <span class="material-symbols-outlined" lang="en">
+                                call
+                            </span>
+                            <input type="number" lang="ar" placeholder="رقم هاتف (والدة الطالب)" required />
                         </div>
                         <div class="form-buttons-container">
                             <button type="button" class="next-btn" lang="ar">التالي</button>
@@ -183,8 +173,8 @@
                 </section>
             </div>
         </div>
-        <div class="create-account-card-container">
-            <div class="create-account-card first-create-account-card">
+        <div class="create-account-or-login-card-container">
+            <div class="create-account-or-login-card first-create-account-or-login-card">
                 <section class="create-account-logo-section">
                     <div class="logo">
                         <div class="center-rectangular"></div>
@@ -192,67 +182,36 @@
                     </div>
                     <p class="logo-title">LMS</p>
                 </section>
-                <section class="create-account-form-section">
+                <section class="create-account-or-login-form-section">
                     <p class="form-title">
-                        <span class="material-symbols-outlined"> account_circle </span>
-                        <span class="text" lang="ar">المعلومات الشخصية</span>
+                        <span class="material-symbols-outlined" lang="en"> school </span>
+                        <span class="text" lang="ar">المعلومات الاكاديمية</span>
                     </p>
                     <form class="information">
                         <div class="input-container">
-                            <input type="text" lang="ar" placeholder="الاسم بالكامل" required />
-                        </div>
-                        <div class="input-container">
-                            <input type="number" lang="ar" placeholder="الرقم القومي" required />
-                        </div>
-                        <div class="input-container">
-                            <select name="gender" id="select-genter" title="Select your gender" required>
-                                <option value="male" lang="ar">ذكر</option>
-                                <option value="female" lang="ar">أنثى</option>
+                            <span class="material-symbols-outlined" lang="en">
+                                menu_book
+                            </span>
+                            <select name="division" id="select-division" title="Select your division" required>
+                                <option value="" lang="ar" disabled selected>الشعبة</option>
+                                <option value="male" lang="ar">علمي</option>
+                                <option value="female" lang="ar">ادبي</option>
                             </select>
                         </div>
-                        <div class="country-and-city-input-container">
-                            <div class="input-container">
-                                <input type="text" lang="ar" disabled placeholder="مصر" required />
-                            </div>
-                            <div class="input-container">
-                                <select name="city" id="select-city" lang="ar" title="المحافظة" required>
-                                    <option value="" lang="ar" disabled selected>المحافظة</option>
-                                    <option value="Cairo" lang="ar">الاقاهرة</option>
-                                    <option value="Giza" lang="ar">الجيزة</option>
-                                    <option value="Alexandria" lang="ar">الاسكندرية</option>
-                                    <option value="Albhira" lang="ar">البحيرة</option>
-                                    <option value="Ismailia" lang="ar">الإسماعيلية</option>
-                                    <option value="Aswan" lang="ar">أسوان</option>
-                                    <option value="Asyut" lang="ar">أسيوط</option>
-                                    <option value="the shortest" lang="ar">الأقصر</option>
-                                    <option value="The Red Sea" lang="ar">البحر الاحمر</option>
-                                    <option value="Bani Sweif" lang="ar">بني سويف</option>
-                                    <option value="Port Said" lang="ar">بورسعيد</option>
-                                    <option value="South of Sinaa" lang="ar">جنوب سيناء</option>
-                                    <option value="Dakahlia" lang="ar">الدقهلية</option>
-                                    <option value="Damietta" lang="ar">دمياط</option>
-                                    <option value="Sohag" lang="ar">سوهاج</option>
-                                    <option value="Suez" lang="ar">السويس</option>
-                                    <option value="Eastern" lang="ar">الشرقية</option>
-                                    <option value="North Sinai" lang="ar">شمال سيناء</option>
-                                    <option value="Western" lang="ar">الغربية</option>
-                                    <option value="Fayoum" lang="ar">الفيوم</option>
-                                    <option value="Qalyubia" lang="ar">القليوبية</option>
-                                    <option value="Qena" lang="ar">قنا</option>
-                                    <option value="Kafr El-Sheikh" lang="ar">كفر الشيخ</option>
-                                    <option value="Matroh" lang="ar">مطروح</option>
-                                    <option value="Menoufia" lang="ar">المنوفية</option>
-                                    <option value="Minya" lang="ar">المنيا</option>
-                                    <option value="the new Valley" lang="ar">الوادي الجديد</option>
-                                </select>
-                            </div>
-                        </div>
                         <div class="input-container">
-                            <input type="text" lang="ar" placeholder="العنوان بالتفصيل" required />
+                            <span class="material-symbols-outlined" lang="en">
+                                person
+                            </span>
+                            <input type="text" lang="ar" placeholder="اسم المدرسة" required />
+                        </div>
+                        <div class="input-checkbox-container">
+                            <label for="agree" lang="ar">
+                                أقر بأنني وافقت على جميع الشروط و الأحكام
+                            </label>
+                            <input name="agree" id="agree" type="checkbox" required>
                         </div>
                         <div class="form-buttons-container">
-                            <button type="button" class="next-btn" lang="ar">التالي</button>
-                            <button type="button" class="back-btn" lang="ar">رجوع</button>
+                            <button type="submit" class="next-btn" lang="ar">انشاء حساب</button>
                         </div>
                     </form>
                 </section>

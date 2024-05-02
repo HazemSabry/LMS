@@ -1,10 +1,10 @@
 :root {
     --num-of-welcome-page-image: 12;
     --num-of-gaps-between-welcome-page-image: calc(var(--num-of-welcome-page-image) - 1);
-    --welcome-page-image-dimension: calc(150px * var(--screen-hight-scale));
-    --welcome-page-image-gap: calc(1rem * var(--screen-hight-scale));
+    --welcome-page-image-dimension: calc(150px * var(--screen-scale));
+    --welcome-page-image-gap: calc(1rem * var(--screen-scale));
     --welcome-page-note-text-color: #948CA0;
-    --welcome-page-logo-dimensions: calc(8rem * var(--screen-hight-scale));
+    --welcome-page-logo-dimensions: calc(8rem * var(--screen-scale));
     --welcome-page-image-animation-duration: 60s;
 }
 
