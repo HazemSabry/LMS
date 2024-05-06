@@ -1,9 +1,12 @@
-const rows = document.querySelectorAll(".row");
+const screenScale = getComputedStyle(root).getPropertyValue('--screen-scale');
+const animationScreenImage = document.getElementById("animation-screen image");
+const animationScreenImageInnerHTML = animationScreenImage.innerHTML;
+const createAccountBtn = document.getElementById("create-account-btn");
+const loginBtn = document.getElementById("login-btn");
 
-const imageDimension = 150 * screenHightScale;
-const gapBetweenImages = 16 * screenHightScale;
+const imageDimension = 150 * screenScale;
+const gapBetweenImages = 16 * screenScale;
 const animationTime = 60;
-const numberOfRows = rows.length;
 const numberOfImagesPerRow = Math.ceil(screen.width / (imageDimension + gapBetweenImages)) + 1;
 root.style.setProperty("--num-of-welcome-page-image", numberOfImagesPerRow);
 
@@ -12,6 +15,9 @@ const animate1PxInMileSeconds = (animationTime * 1000) / totalImageTranslateDist
 const animationDelayInMileSeconds = animate1PxInMileSeconds * (imageDimension + gapBetweenImages);
 
 function initializeImages() {
+    const rows = document.querySelectorAll(".row");
+    const numberOfRows = rows.length;
+
     const imagesSrc = [
         "assets/student13.jpg",
         "assets/student14.jpg",
@@ -77,6 +83,8 @@ function initializeImagesToRight(images) {
 }
 
 function startImagesAnimation() {
+    const rows = document.querySelectorAll(".row");
+
     let rowIndex = 0;
     rows.forEach((row) => {
         rowIndex % 2 === 0 ? infiniteScrollToLeft(row) : infiniteScrollToRight(row);
@@ -99,6 +107,8 @@ function infiniteScrollToRight(row) {
 }
 
 function createInfiniteMovingImages() {
+    const rows = document.querySelectorAll(".row");
+
     const infiniteScrollInterval = setInterval(function () {
         let rowIndex = 0;
         rows.forEach((row) => {
@@ -115,7 +125,27 @@ function createInfiniteMovingImages() {
     }, animationDelayInMileSeconds);
 }
 
-initialize();
+function btnAction() {
+    createAccountBtn.addEventListener("click", () => {
+        window.location.href = "CreateAccountPage.html";
+    });
+    loginBtn.addEventListener("click", () => {
+        window.location.href = "LoginPage.html";
+    });
+}
+
+document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+        animationScreenImage.innerHTML = animationScreenImageInnerHTML;
+        initializeImages();
+        startImagesAnimation();
+        createInfiniteMovingImages();
+    }
+});
+
+
+
 initializeImages();
 startImagesAnimation();
 createInfiniteMovingImages();
+btnAction();

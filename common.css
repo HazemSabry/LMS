@@ -16,10 +16,16 @@
     --number-of-background-images-per-row:15;
     --next-btn-background-color:#6750A4;
     --back-btn-background-color: #EADDFF;
+    --error-color: #BA1A1A;
+    --input-field-background-color: #E7E0E8;
+    --input-field-icon-dimension: 24px;
+    --create-account-page-logo-dimensions: calc(6rem * var(--screen-scale));
+    --input-field-background-color: #E7E0E8;
 }
 
 html {
     font-size: calc(16px * var(--screen-scale));
+    scroll-behavior: smooth;
 }
 
 *,
@@ -96,6 +102,45 @@ body>.page-header>.page-title {
     background-color: var(--background-color);
 }
 
+/****************** create-account-or-login-logo-section ******************/
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-logo-section {
+    padding: calc(3rem * var(--screen-scale)) calc(3rem * var(--screen-scale)) calc(2rem * var(--screen-scale)) calc(3rem * var(--screen-scale));
+}
+
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-logo-section>.logo {
+    background-color: var(--logo-background-color);
+    border-radius: 50%;
+    width: var(--create-account-page-logo-dimensions);
+    height: var(--create-account-page-logo-dimensions);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-logo-section>.logo>.center-rectangular {
+    position: absolute;
+    background-color: var(--logo-prim-color);
+    width: var(--create-account-page-logo-dimensions);
+    height: var(--create-account-page-logo-dimensions);
+    clip-path: polygon(15% 15%, 85% 15%, 85% 85%, 15% 85%);
+}
+
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-logo-section>.logo>.center-triangular {
+    position: absolute;
+    background-color: var(--logo-center-color);
+    width: var(--create-account-page-logo-dimensions);
+    height: var(--create-account-page-logo-dimensions);
+    clip-path: polygon(15% 15%, 50% 85%, 85% 15%);
+}
+
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-logo-section>.logo-title {
+    width: fit-content;
+    position: relative;
+    left: calc(50% - var(--font-size) * 3);
+    font-size: calc(var(--font-size) * 2);
+    padding: calc(var(--font-size));
+}
+
 /***************** create-account-or-login-cards ***************************/
 body>.create-account-or-login-cards-container {
     width: 100%;
@@ -103,6 +148,7 @@ body>.create-account-or-login-cards-container {
     display: flex;
     flex-direction: row-reverse;
     overflow-x: auto;
+    scroll-snap-type: x mandatory;
 }
 
 body>.create-account-or-login-cards-container::-webkit-scrollbar {
@@ -114,16 +160,18 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     min-width: 100%;
     width: 100%;
     max-width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    scroll-snap-align: center;
 }
 
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card {
     background-color: var(--background-color);
     border-radius: 30px;
     max-width: 25rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 /**************** create-account-or-login-form-section ********************/
@@ -139,15 +187,14 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     align-items: center;
 }
 
-body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.form-title>.material-symbols-outlined {
-    font-size: calc(var(--font-size)* 1.5);
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.form-title>.icon {
+    width: calc(var(--input-field-icon-dimension) * 1.7);
+    height: calc(var(--input-field-icon-dimension) * 1.7);
     color: #fff;
     padding: 0.7rem;
     background-color: var(--button-color);
     border-radius: 50%;
 }
-
-body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.form-title>.text {}
 
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information {
     display: flex;
@@ -173,10 +220,25 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     position: relative;
 }
 
-body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>.material-symbols-outlined,
-body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.country-and-city-input-container>.input-container>.material-symbols-outlined {
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>.icon,
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.country-and-city-input-container>.input-container>.icon {
     position: absolute;
     right: 0.5rem;
+    width: var(--input-field-icon-dimension);
+    height: var(--input-field-icon-dimension);
+}
+
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>.eye-icon-container {
+    position: absolute;
+    left: 0.5rem;
+    width: var(--input-field-icon-dimension);
+    height: var(--input-field-icon-dimension);
+    cursor: pointer;
+}
+
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>.eye-icon-container>.icon{
+    width: var(--input-field-icon-dimension);
+    height: var(--input-field-icon-dimension);
 }
 
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>input,
@@ -184,9 +246,9 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.country-and-city-input-container>.input-container>input,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.country-and-city-input-container>.input-container>select {
     font-size: inherit;
-    background-color: #E7E0E8;
+    background-color: var(--input-field-background-color);
     border: none;
-    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
     min-width: calc(50% - 0.5rem);
     text-align: right;
     width: 100%;
@@ -198,6 +260,7 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.country-and-city-input-container>.input-container>input:focus,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.country-and-city-input-container>.input-container>select:focus {
     outline: none;
+    box-shadow: 0 2px 0 0  var(--button-color);
 }
 
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>select,
@@ -228,7 +291,7 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 0.5rem;
 }
 
@@ -242,6 +305,11 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     gap: 1rem;
 }
 
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-stack-buttons-container {
+    flex-direction: column;
+    gap: 0;
+}
+
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.next-btn,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.back-btn {
     font-size: calc(var(--font-size) * 0.9);
@@ -251,6 +319,11 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     padding: 0.5rem;
     border-radius: 50px;
     cursor: pointer;
+}
+
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.next-stack-btn,
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.back-stack-btn {
+    font-size: calc(var(--font-size) * 1.1 );
 }
 
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.next-btn:hover,
@@ -271,4 +344,103 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.back-btn {
     color: var(--next-btn-background-color);
     background-color: var(--back-btn-background-color);
+}
+
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.back-stack-btn{
+    background-color: var(--background-color);
+}
+
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.back-stack-btn:hover,
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.back-stack-btn:active {
+    filter: brightness(1);
+}
+
+/*************************** Technical Support button ************************************/
+
+body>.technical-support-btn{
+    position: fixed;
+    flex-direction: row-reverse;
+    gap: 1rem;
+    bottom: 3vh;
+    right: 3vw;
+    border-radius: 15px;
+    display: flex;
+    z-index: 99999;
+    font-size: calc(var(--font-size) * 1.3);
+    color: #220F46;
+    background-color: var(--back-btn-background-color);
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+body>.technical-support:active{
+    filter: brightness(0.9);
+}
+
+/*************************** Pop Up Message ************************************/
+body>.pop-up-message-background{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999999999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body>.pop-up-message-background>.message{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    background-color: var(--background-color);
+    padding: 2rem;
+    border-radius: 25px;
+}
+
+body>.pop-up-message-background>.message>.next{
+    align-self: flex-end;
+    border: none;
+    background-color: transparent;
+    color: var(--button-color);
+    font-size: calc(var(--font-size) * 1.2);
+    margin: 1rem;
+    cursor: pointer;
+}
+
+body>.pop-up-message-background>.message>.next:hover{
+    filter: brightness(1.1);
+}
+
+body>.pop-up-message-background>.message>.next:active{
+    filter: brightness(0.9);
+}
+
+/************************* OTP **********************/
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.form-title>.OTP-form-title{
+    font-size: calc(var(--font-size) * 1.3);
+    font-weight: 600;
+    color: var(--logo-background-color);
+}
+
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.OTP-input-container{
+    gap:1rem;
+    flex-direction: row;
+    justify-content: center;
+}
+
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.OTP-input-container>input{
+    min-width: 5rem;
+    padding: 1rem;
+    font-size: calc(var(--font-size) * 1.5);
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }

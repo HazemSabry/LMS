@@ -202,12 +202,12 @@ body>.welcome-page-buttons>.create-account:active {
     }
 }
 
-/***************** Create Account Page> create-account-logo-section *******************/
-body>.create-account-logo-section >{
+/***************** Create Account Page> create-account-or-login-logo-section *******************/
+body>.create-account-or-login-logo-section >{
 
 }
 
-body>.create-account-logo-section>.logo {
+body>.create-account-or-login-logo-section>.logo {
     background-color: var(--logo-background-color);
     border-radius: 50%;
     width: var(--welcome-page-logo-dimensions);
@@ -217,7 +217,7 @@ body>.create-account-logo-section>.logo {
     transform: translateX(-50%);
 }
 
-body>.create-account-logo-section>.logo>.center-rectangular {
+body>.create-account-or-login-logo-section>.logo>.center-rectangular {
     position: absolute;
     background-color: var(--logo-prim-color);
     width: var(--welcome-page-logo-dimensions);
@@ -225,7 +225,7 @@ body>.create-account-logo-section>.logo>.center-rectangular {
     clip-path: polygon(15% 15%, 85% 15%, 85% 85%, 15% 85%);
 }
 
-body>.create-account-logo-section>.logo>.center-triangular {
+body>.create-account-or-login-logo-section>.logo>.center-triangular {
     position: absolute;
     background-color: var(--logo-center-color);
     width: var(--welcome-page-logo-dimensions);
@@ -233,7 +233,7 @@ body>.create-account-logo-section>.logo>.center-triangular {
     clip-path: polygon(15% 15%, 50% 85%, 85% 15%);
 }
 
-body>.create-account-logo-section>.logo-title {
+body>.create-account-or-login-logo-section>.logo-title {
     width: fit-content;
     position: relative;
     left: calc(50% - var(--font-size) * 3);
