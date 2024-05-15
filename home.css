@@ -1,0 +1,123 @@
+:root{
+    --story-image-dimension: 5rem;
+    --story-border-color: var(--button-color);
+    --story-seen-border-color: var(--back-btn-background-color);
+    --skelton-color: #e2e2e2;
+
+    --teacher-image-dimension: 10rem;
+    --ad-image-dimension: 60VW;
+    --indicator-active-color: var(--logo-prim-color);
+}
+/********************* Stories *******************************/
+body>.page-body>.stories-section{
+    overflow-x: scroll;
+    width: calc(100vw - 1rem);
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0.5rem;
+    padding: 2rem;
+}
+
+body>.page-body>.stories-section::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+
+body>.page-body>.stories-section>.story-container{
+    border-radius: 50%;
+    border: 0.2rem solid var(--story-border-color);
+    padding: 0.2rem;
+    cursor: pointer;
+}
+
+body>.page-body>.stories-section>.story-container>.story {
+    background-color: var(--skelton-color);
+    min-width: var(--story-image-dimension);
+    height: var(--story-image-dimension);
+    border-radius: 50%;
+}
+
+/********************* Teachers & Ads *******************************/
+body>.page-body>.teachers-section,
+body>.page-body>.ads-section{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+body>.page-body>.teachers-section>.title,
+body>.page-body>.ads-section>.title{
+    font-size: calc(var(--font-size) * 1.5);
+    font-weight: 600;
+}
+
+body>.page-body>.teachers-section>.body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: end;
+    gap: 1rem;
+}
+
+body>.page-body>.teachers-section>.body>.teacher-image-container{
+    background-color: var(--skelton-color);
+    min-width: var(--teacher-image-dimension);
+    height: calc(var(--teacher-image-dimension) * 0.75);
+    border-radius: 20px;
+}
+
+body>.page-body>.ads-section>.body{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: end;
+    gap: 1rem;
+    width: calc(100vw - 4rem);
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+body>.page-body>.ads-section>.body>.ad-container{
+    background-color: var(--skelton-color);
+    min-width: var(--ad-image-dimension);
+    height: calc(var(--ad-image-dimension) * 0.4);
+    border-radius: 20px;
+    scroll-snap-align: center;
+}
+
+body>.page-body>.ads-section>.body::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+
+.indicators-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    width: 100vw;
+}
+
+.indicators-container>.ad-indicator {
+    background-color: var(--skelton-color);
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.indicators-container>.ad-indicator.active {
+    transform: scale(1.6);
+    background-color: var(--indicator-active-color);
+}
+
+@media (max-width: 768px) {
+    :root{
+        --ad-image-dimension: calc(100vw - 4rem);
+    }
+
+    .indicators-container>.ad-indicator {
+        margin: 5px;
+    }
+}

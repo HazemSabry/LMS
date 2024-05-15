@@ -14,13 +14,12 @@
     --welcome-page-image-animation-duration: 60s;
     --background-image-dimension: 150px;
     --number-of-background-images-per-row:15;
-    --next-btn-background-color:#6750A4;
+    --next-btn-background-color:var(--button-color);
     --back-btn-background-color: #EADDFF;
     --error-color: #BA1A1A;
     --input-field-background-color: #E7E0E8;
     --input-field-icon-dimension: 24px;
     --create-account-page-logo-dimensions: calc(6rem * var(--screen-scale));
-    --input-field-background-color: #E7E0E8;
 }
 
 html {
@@ -82,16 +81,21 @@ body>.background-moving-images>.background-moving-images-row>.background-image{
 }
 
 /*************************** Page Header *********************************/
-body>.page-header {
+
+body>nav{
     position: fixed;
     z-index: 99999999;
     top: 0;
     right: 0;
     width: 100%;
+}
+
+body>nav>.page-header {
+    width: 100%;
     display: none;
 }
 
-body>.page-header>.page-title {
+body>nav>.page-header>.page-title {
     display: flex;
     flex-direction: row-reverse;
     gap: 1rem;
