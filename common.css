@@ -106,6 +106,10 @@ body>nav>.page-header>.page-title {
     background-color: var(--background-color);
 }
 
+body>nav>.page-header>.page-title>svg{
+    cursor: pointer;
+}
+
 /****************** create-account-or-login-logo-section ******************/
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-logo-section {
     padding: calc(3rem * var(--screen-scale)) calc(3rem * var(--screen-scale)) calc(2rem * var(--screen-scale)) calc(3rem * var(--screen-scale));

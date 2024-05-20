@@ -1,0 +1,57 @@
+:root{
+    --number-background-color: var(--welcome-page-image-background-color);
+    --lesson-background-color: var(--bottom-nav-background-color);
+}
+
+
+body>.page-body{
+    padding: 1rem;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+body>.page-body>.lesson{
+    display: flex;
+    flex-direction: row-reverse;
+    width: calc(20% - 1rem);
+    min-width: max-content;
+    gap: 1rem;
+    background-color: var(--lesson-background-color);
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+body>.page-body>.lesson:hover{
+    filter: brightness(0.95);
+}
+
+body>.page-body>.lesson:active {
+    filter: brightness(0.9);
+}
+
+body>.page-body>.lesson>.number{
+    font-size: calc(var(--font-size) * 1.2);
+    font-weight: 600;
+    background-color: var(--number-background-color);
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+body>.page-body>.lesson>.content {}
+
+body>.page-body>.lesson>.content>.title {
+    font-size: calc(var(--font-size) * 1.2);
+    font-weight: 400;
+}
+
+body>.page-body>.lesson>.content>.date {
+    font-size: calc(var(--font-size) * 0.9);
+    font-weight: 300;
+}

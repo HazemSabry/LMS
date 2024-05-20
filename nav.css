@@ -3,7 +3,8 @@
     --bar-height: 0.5rem;
     --hamburger-gap: 0.4rem;
     --foreground-color: #fff;
-    --background-color: #333;
+    --hamburger-menu-background-color: #333;
+    --background-color: #fff;
     --animation-time: 200ms;
     --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
 
@@ -58,7 +59,7 @@ body>nav>.nav>.menu-dropdown>.hamburger-menu::after {
     content: "";
     width: var(--bar-width);
     height: var(--bar-height);
-    background-color: var(--background-color);
+    background-color: var(--hamburger-menu-background-color);
     border-radius: 100px;
 
     transition: opacity var(--animation-time), width var(--animation-time),
@@ -211,7 +212,7 @@ body>nav>.nav>.menu-side>.hamburger-menu::after {
     content: "";
     width: var(--bar-width);
     height: var(--bar-height);
-    background-color: var(--background-color);
+    background-color: var(--hamburger-menu-background-color);
     border-radius: 100px;
 
     transition: opacity var(--animation-time), width var(--animation-time),
@@ -233,13 +234,13 @@ body>nav>.nav>.menu-side>.hamburger-menu input:checked {
 body>nav>.nav>.menu-side>.hamburger-menu:has(input:checked)::before {
     transform: translateY(calc(var(--bar-height) / -2)) rotate(45deg);
     width: var(--x-width);
-    background-color: var(--background-color);
+    background-color: var(--hamburger-menu-background-color);
 }
 
 body>nav>.nav>.menu-side>.hamburger-menu:has(input:checked)::after {
     transform: translateY(calc(var(--bar-height) / 2)) rotate(-45deg);
     width: var(--x-width);
-    background-color: var(--background-color);
+    background-color: var(--hamburger-menu-background-color);
 }
 
 body>nav>.nav>.menu-side>.menu-sidebar {
@@ -251,7 +252,7 @@ body>nav>.nav>.menu-side>.menu-sidebar {
     padding: 1rem;
     padding-top: calc(var(--hamburger-height) + 4rem);
     background-color: var(--foreground-color);
-    color: var(--background-color);
+    color: var(--hamburger-menu-background-color);
     min-height: 100vh;
     overflow: hidden;
     transform: translateX(100%);
@@ -271,7 +272,7 @@ body>nav>.nav>.menu-side:has(input:checked)~.profile-side{
 body>nav>.nav>.menu-side>.hamburger-menu input:focus-visible,
 body>nav>.nav>.menu-side>.hamburger-menu:has(input:focus-visible)::before,
 body>nav>.nav>.menu-side>.hamburger-menu:has(input:focus-visible)::after {
-    border: 1px solid var(--background-color);
+    border: 1px solid var(--hamburger-menu-background-color);
     box-shadow: 0 0 0 1px var(--foreground-color);
 }
 
@@ -279,7 +280,7 @@ body>nav>.nav>.menu-side>.hamburger-menu input:focus-visible:checked,
 body>nav>.nav>.menu-side>.hamburger-menu:has(input:focus-visible:checked)::before,
 body>nav>.nav>.menu-side>.hamburger-menu:has(input:focus-visible:checked)::after {
     border: 1px solid var(--foreground-color);
-    box-shadow: 0 0 0 1px var(--background-color);
+    box-shadow: 0 0 0 1px var(--hamburger-menu-background-color);
 }
 
 body>nav>.nav>.menu-side>.menu-sidebar>ul{
@@ -322,7 +323,6 @@ body>nav>.nav>.profile-dropdown {
     flex: 1;
     padding: 0.75rem 0;
     max-width: fit-content;
-    display: none;
 }
 
 body>nav>.nav>.profile-dropdown>.profile-dropdown-image {
@@ -466,7 +466,7 @@ body>nav>.nav>.profile-dropdown>.profile-dropdown-image:has(input:checked)+ul {
 
 /********************** Profile Mobile **********************************/
 body>nav>.nav>.profile-side {
-    
+    display: none;
 }
 
 body>nav>.nav>.profile-side>.profile-side-image {
@@ -503,7 +503,7 @@ body>nav>.nav>.profile-side>ul {
     padding: 1rem;
     padding-top: calc(var(--hamburger-height) + 4rem);
     background-color: var(--foreground-color);
-    color: var(--background-color);
+    color: var(--hamburger-menu-background-color);
     min-height: 100vh;
     overflow: hidden;
     transform: translateX(-100%);
