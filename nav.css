@@ -21,6 +21,13 @@
     --bottom-nav-active-btn-background-color: var(--welcome-page-image-background-color);
 }
 
+/**
+ * @author Hazem Sabry
+ * @email hazemsabry2002@gmail.com
+ * This CSS block defines the structure and styles for the navigation bar.
+ * It positions the navigation bar at the top of the page, displays it in a row-reverse direction,
+ * and justifies its content between the left and right sides. The navigation bar has a padding of 1rem and a background color of #fff.
+ */
 body>nav>.nav {
     position: relative;
     display: flex;
@@ -32,17 +39,35 @@ body>nav>.nav {
     background-color: #fff;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry2002@gmail.com
+ * This CSS block defines the title of the navigation bar.
+ * It increases the font size of the title to twice the base font size.
+ */
 body>nav>.nav>.title {
     font-size: calc(var(--font-size) * 2);
 }
 
-/********************** Desktop Menu ************************************/
+/********************************************************** Desktop Menu ************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry2002@gmail.com
+ * This block of code styles the dropdown menu for the navigation bar.
+ * It applies flex properties to align the menu items and sets padding for spacing.
+*/
 body>nav>.nav>.menu-dropdown{
     flex: 1;
     padding: 0.75rem 0;
     max-width: fit-content;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry2002@gmail.com
+ * This block of code styles the hamburger menu for the dropdown menu.
+ * It applies flex properties to align the menu items, sets dimensions, and sets cursor.
+*/
 body>nav>.nav>.menu-dropdown>.hamburger-menu {
     display: flex;
     flex-direction: column;
@@ -53,6 +78,12 @@ body>nav>.nav>.menu-dropdown>.hamburger-menu {
     z-index: 9;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry2002@gmail.com
+ * This block of code styles the hamburger menu elements (bars) for the dropdown menu.
+ * It applies properties to set dimensions, background color, border radius, and transitions.
+*/
 body>nav>.nav>.menu-dropdown>.hamburger-menu input,
 body>nav>.nav>.menu-dropdown>.hamburger-menu::before,
 body>nav>.nav>.menu-dropdown>.hamburger-menu::after {
@@ -67,12 +98,24 @@ body>nav>.nav>.menu-dropdown>.hamburger-menu::after {
     transform-origin: left center;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry2002@gmail.com
+ * This block of code styles the hamburger menu input element for the dropdown menu.
+ * It applies properties to hide the input element and prevent it from interfering with the menu functionality.
+*/
 body>nav>.nav>.menu-dropdown>.hamburger-menu input {
     appearance: none;
     outline: none;
     pointer-events: none;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry2002@gmail.com
+ * This is the style for the dropdown menu in the navigation bar.
+ * It is hidden by default and only appears when the user interacts with the menu.
+*/
 body>nav>.nav>.menu-dropdown>ul{
     position: absolute;
     min-width: var(--menu-dropdown-width);
@@ -86,6 +129,12 @@ body>nav>.nav>.menu-dropdown>ul{
     border-radius:20px ;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry2002@gmail.com
+ * The following styles are for the individual list items in the dropdown menu.
+ * They are hidden by default and only appear when the user interacts with the menu.
+*/
 body>nav>.nav>.menu-dropdown>ul>li{
     position: relative;
     line-height: 1.5rem;
@@ -100,14 +149,32 @@ body>nav>.nav>.menu-dropdown>ul>li{
     border-bottom: 0.2rem solid #fff;
 }
 
-body>nav>.nav>.menu-dropdown>ul>li:hover{
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry2002@gmail.com
+ * This CSS rule sets the hover effect on the menu dropdown items.
+ * It changes the brightness of the background color to 90% when the mouse hovers over the item.
+ */
+body>nav>.nav>.menu-dropdown>ul>li:hover {
     filter: brightness(0.9);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry2002@gmail.com
+ * This CSS rule sets the active effect on the menu dropdown items.
+ * It changes the brightness of the background color to 95% when the item is actively clicked.
+ */
 body>nav>.nav>.menu-dropdown>ul>li:active {
     filter: brightness(0.95);
 }
 
+/** 
+ * @author Hazem Sabry 
+ * @email hazemsabry2002@gmail.com 
+ * This CSS block defines the code structure and styles for the individual list items in the dropdown menu. 
+ * They are hidden by default and only appear when the user interacts with the menu.
+  */
 body>nav>.nav>.menu-dropdown>ul>li:nth-child(1){
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -163,11 +230,22 @@ body>nav>.nav>.menu-dropdown>ul>li:nth-child(10) {
     border-bottom: none;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry2002@gmail.com
+ * This CSS rule is used to display the dropdown menu when the hamburger menu input is checked.
+ * The 'display: flex' property is used to create a flex container, and 'flex-direction: column' is used to stack the items vertically.
+*/
 body>nav>.nav>.menu-dropdown>.hamburger-menu:has(input:checked)+ul{
     display: flex;
     flex-direction: column;
 }
 
+/**
+ * @author Hazem Sabry
+ * @email hazemsabry2002@gmail.com
+ * This keyframes block is used to animate the appearance of the dropdown menu in the navigation bar. It controls the transition of the dropdown menu's opacity, width, transform, and background color when it is interacted with by the user.
+ */
 @keyframes enter {
     from {
         opacity: 0;
@@ -190,12 +268,25 @@ body>nav>.nav>.menu-dropdown>.hamburger-menu:has(input:checked)+ul{
     }
 }
 
-/********************** Mobile Menu ************************************/
+/********************************************************************************************** Mobile Menu ************************************************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry2002@gmail.com
+ * This block of code is responsible for hiding the mobile menu side navigation.
+ * It is initially set to 'display: none' to hide it from the view.
+ * The mobile menu will be displayed when the hamburger menu icon is clicked.
+ */
 body>nav>.nav>.menu-side{
     display: none;
 }
 
-
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com 
+ * This block of code is responsible for creating the hamburger menu icon. 
+ * It applies flex properties to align the menu items and sets padding for spacing. 
+ * It sets dimensions, background color, border radius, and transitions for the hamburger menu elements. 
+ */
 body>nav>.nav>.menu-side>.hamburger-menu {
     display: flex;
     flex-direction: column;
@@ -206,6 +297,12 @@ body>nav>.nav>.menu-side>.hamburger-menu {
     z-index: 9;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com 
+ * This block of code is responsible for creating the hamburger menu elements. 
+ * It applies properties to set dimensions, background color, border radius, and transitions. 
+ */
 body>nav>.nav>.menu-side>.hamburger-menu input,
 body>nav>.nav>.menu-side>.hamburger-menu::before,
 body>nav>.nav>.menu-side>.hamburger-menu::after {
@@ -220,29 +317,62 @@ body>nav>.nav>.menu-side>.hamburger-menu::after {
     transform-origin: left center;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com 
+ * This block of code is responsible for hiding the hamburger menu input element. 
+ * It applies properties to hide the input element and prevent it from interfering with the menu functionality. 
+ */
 body>nav>.nav>.menu-side>.hamburger-menu input {
     appearance: none;
     outline: none;
     pointer-events: none;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule is used to hide the hamburger menu input when it is checked.
+ * This is done to make the X shape appear when the menu is open.
+ */
 body>nav>.nav>.menu-side>.hamburger-menu input:checked {
     opacity: 0;
     width: 0;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule is used to transform the hamburger menu icon into an 'X' shape when the menu is open.
+ * It applies a transformation to the pseudo-element ::before, which represents the top bar of the hamburger menu.
+ * The transformation rotates the bar 45 degrees and adjusts its width to create the 'X' shape.
+ */
 body>nav>.nav>.menu-side>.hamburger-menu:has(input:checked)::before {
     transform: translateY(calc(var(--bar-height) / -2)) rotate(45deg);
     width: var(--x-width);
     background-color: var(--hamburger-menu-background-color);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule is used to transform the second pseudo-element ::after, 
+ * representing the bottom bar of the hamburger menu, into an 'X' shape when the menu is open.
+ * The transformation rotates the bar -45 degrees and adjusts its width to create the 'X' shape.
+ */
 body>nav>.nav>.menu-side>.hamburger-menu:has(input:checked)::after {
     transform: translateY(calc(var(--bar-height) / 2)) rotate(-45deg);
     width: var(--x-width);
     background-color: var(--hamburger-menu-background-color);
 }
 
+/**
+ * @author Hazem Sabry
+ * @email hazemsabry20002@gmail.com
+ * This block of code is responsible for hiding the mobile menu side navigation.
+ * It is initially set to 'display: none' to hide it from the view.
+ * The mobile menu will be displayed when the hamburger menu icon is clicked.
+ */
 body>nav>.nav>.menu-side>.menu-sidebar {
     position: absolute;
     top: 0;
@@ -260,15 +390,36 @@ body>nav>.nav>.menu-side>.menu-sidebar {
     width: 100vw;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule is used to display the mobile menu sidebar when the hamburger menu is clicked.
+ * It applies a transformation to the menu-sidebar element, moving it from its initial position to the left side of the screen.
+ * The z-index property is set to 8 to ensure that the menu-sidebar appears above other elements.
+ * This rule is specific to the menu-side element and its child elements, and it is activated when the hamburger menu input is checked.
+ */
 body>nav>.nav>.menu-side>.hamburger-menu:has(input:checked)+.menu-sidebar {
     transform: translateX(0);
     z-index: 8;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule is used to adjust the z-index of the profile-side element when the hamburger menu is clicked.
+ * It sets the z-index to 7, ensuring that the profile-side element appears below the menu-sidebar but above other elements.
+ * This rule is specific to the menu-side element and its child elements, and it is activated when the hamburger menu input is checked.
+ */
 body>nav>.nav>.menu-side:has(input:checked)~.profile-side{
     z-index: 7;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule is used to apply a focus-visible effect to the dropdown menu items.
+ * It adds a border and a box shadow to the menu item when it is focused.
+ */
 body>nav>.nav>.menu-side>.hamburger-menu input:focus-visible,
 body>nav>.nav>.menu-side>.hamburger-menu:has(input:focus-visible)::before,
 body>nav>.nav>.menu-side>.hamburger-menu:has(input:focus-visible)::after {
@@ -276,6 +427,12 @@ body>nav>.nav>.menu-side>.hamburger-menu:has(input:focus-visible)::after {
     box-shadow: 0 0 0 1px var(--foreground-color);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule is used to apply a focus-visible effect to the dropdown menu items.
+ * It adds a border and a box shadow to the menu item when it is focused.
+ */
 body>nav>.nav>.menu-side>.hamburger-menu input:focus-visible:checked,
 body>nav>.nav>.menu-side>.hamburger-menu:has(input:focus-visible:checked)::before,
 body>nav>.nav>.menu-side>.hamburger-menu:has(input:focus-visible:checked)::after {
@@ -283,16 +440,29 @@ body>nav>.nav>.menu-side>.hamburger-menu:has(input:focus-visible:checked)::after
     box-shadow: 0 0 0 1px var(--hamburger-menu-background-color);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS block is responsible for styling the sidebar menu in the mobile view.
+ * It includes the styling for the unordered list, list items, and other related elements.
+ */
 body>nav>.nav>.menu-side>.menu-sidebar>ul{
     list-style: none;
     line-height: calc(var(--font-size) * 2.4);
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     gap: 0.2rem;
-    width: 100%;
+    width: 100%; 
     padding: 0;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com 
+ * This block of code is responsible for styling the mobile menu side navigation. 
+ * It is initially set to 'display: none' to hide it from the view. 
+ * The mobile menu will be displayed when the hamburger menu icon is clicked. 
+ */
 body>nav>.nav>.menu-side>.menu-sidebar>ul>li{
     font-size: calc(var(--font-size) * 1.2);
     background-color: var(--back-btn-background-color);
@@ -304,27 +474,65 @@ body>nav>.nav>.menu-side>.menu-sidebar>ul>li{
     color: #000;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule is used to apply a brightness filter to the dropdown menu items when they are active.
+ * The brightness filter reduces the overall brightness of the menu item by 5%, making it appear slightly darker.
+ * This helps to visually distinguish the active menu item from the other items.
+ */
 body>nav>.nav>.menu-side>.menu-sidebar>ul>li:active{
     filter: brightness(0.95);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule sets the border-radius property for the first list item in the mobile menu sidebar.
+ * It adds rounded corners to the top-left and top-right corners of the first list item.
+ * This helps to visually distinguish the first list item from the other items.
+ */
 body>nav>.nav>.menu-side>.menu-sidebar>ul>li:first-child{
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule sets the border-radius property for the last list item in the mobile menu sidebar.
+ * It adds rounded corners to the bottom-left and bottom-right corners of the last list item.
+ * This helps to visually distinguish the last list item from the other items.
+ */
 body>nav>.nav>.menu-side>.menu-sidebar>ul>li:last-child {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
 
-/********************** Profile Desktop **********************************/
+/********************************************************************************************** Profile Desktop **********************************************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS block is responsible for styling the profile dropdown in the navigation bar.
+ * It applies flex properties to align the dropdown in the right side of the navigation bar.
+ * The padding is applied to give some space around the dropdown.
+ * The max-width is set to 'fit-content' to ensure the dropdown does not exceed the available space.
+ */
 body>nav>.nav>.profile-dropdown {
     flex: 1;
     padding: 0.75rem 0;
     max-width: fit-content;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS block is responsible for styling the profile image in the profile dropdown.
+ * It applies flex properties to align the image in the center.
+ * The cursor is set to pointer to indicate that the image is clickable.
+ * The width and height are set to max-content and a specific dimension respectively.
+ * The position, z-index, and other properties are applied for positioning and layering purposes.
+ */
 body>nav>.nav>.profile-dropdown>.profile-dropdown-image {
     display: flex;
     cursor: pointer;
@@ -333,18 +541,41 @@ body>nav>.nav>.profile-dropdown>.profile-dropdown-image {
     z-index: 9;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS block is responsible for styling the profile image in the profile dropdown.
+ * It applies flex properties to align the image in the center.
+ * The cursor is set to pointer to indicate that the image is clickable.
+ * The width and height are set to max-content and a specific dimension respectively.
+ * The position, z-index, and other properties are applied for positioning and layering purposes.
+ */
 body>nav>.nav>.profile-dropdown>.profile-dropdown-image>.profile-image{
     height: var(--nav-profile-image-dimension);
     width: var(--nav-profile-image-dimension);
     cursor: pointer;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS block is responsible for styling the profile image input element in the profile dropdown.
+ * It applies properties to hide the input element and prevent it from interfering with the menu functionality.
+ */
 body>nav>.nav>.profile-dropdown>.profile-dropdown-image input {
     appearance: none;
     outline: none;
     pointer-events: none;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS block is responsible for styling the unordered list in the profile dropdown.
+ * It applies list-style: none to remove the default bullet points.
+ * The line-height, display, flex-direction, and other properties are applied for styling purposes.
+ * The padding, border-radius, and other properties are applied for positioning and visual presentation.
+ */
 body>nav>.nav>.profile-dropdown>ul {
     position: absolute;
     min-width: var(--menu-dropdown-width);
@@ -358,6 +589,14 @@ body>nav>.nav>.profile-dropdown>ul {
     border-radius: 20px;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule styles the list items in the profile dropdown.
+ * It applies flex properties to align the items in a row-reverse direction.
+ * The position, line-height, text-align, padding, background, opacity, transform-origin, animation, border-radius, and cursor properties are defined.
+ * The border-bottom property is used to add a border at the bottom of each list item.
+ */
 body>nav>.nav>.profile-dropdown>ul>li {
     display: flex;
     gap: 0.5rem;
@@ -375,20 +614,50 @@ body>nav>.nav>.profile-dropdown>ul>li {
     border-bottom: 0.2rem solid #fff;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule sets the dimensions of the profile image in the profile dropdown.
+ * The width and height are set to a variable --icon-dimension, which is defined elsewhere in the code.
+ * The --icon-dimension variable is set to 24px, so the profile image will have a width and height of 24px.
+ */
 body>nav>.nav>.profile-dropdown>ul>li>svg {
     --icon-dimension:24px;
     width: var(--icon-dimension);
     height: var(--icon-dimension);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule applies a brightness filter to the dropdown menu items when they are hovered over.
+ * The brightness filter reduces the overall brightness of the menu item by 90%, making it appear slightly darker.
+ * This helps to visually distinguish the hovered menu item from the other items.
+ */
 body>nav>.nav>.profile-dropdown>ul>li:hover {
     filter: brightness(0.9);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This rule applies a brightness filter to the dropdown menu items when they are active.
+ * The brightness filter reduces the overall brightness of the menu item by 5%, making it appear slightly darker.
+ * This helps to visually distinguish the active menu item from the other items.
+ */
 body>nav>.nav>.profile-dropdown>ul>li:active {
     filter: brightness(0.95);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule styles the first list item in the profile dropdown.
+ * It changes the flex direction to column and aligns the items in the center.
+ * It also adds rounded corners to the top-left and top-right corners.
+ * The animation duration and delay are set to 0.2s and 0s respectively.
+ * The background color is set to white.
+ */
 body>nav>.nav>.profile-dropdown>ul>li:nth-child(1) {
     flex-direction: column;
     align-items: center;
@@ -399,49 +668,118 @@ body>nav>.nav>.profile-dropdown>ul>li:nth-child(1) {
     background-color: #fff;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This rule removes the brightness filter applied to the profile dropdown menu item when it is hovered over.
+ */
 body>nav>.nav>.profile-dropdown>ul>li:nth-child(1):hover{
     filter: none;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule is used to style the profile image in the profile dropdown.
+ * It calculates the width and height of the profile image based on the --nav-profile-image-dimension variable.
+ * The width and height are set to three times the value of --nav-profile-image-dimension to make the profile image larger.
+*/
 body>nav>.nav>.profile-dropdown>ul>li:nth-child(1)>.profile-image {
     width: calc(var(--nav-profile-image-dimension) * 3);
     height: calc(var(--nav-profile-image-dimension) * 3);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule sets the font size of the name in the profile dropdown menu.
+ * The font size is calculated as 1.2 times the base font size.
+ */
 body>nav>.nav>.profile-dropdown>ul>li:nth-child(1)>.name{
     font-size: calc(var(--font-size) * 1.2);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule sets the font size and color of the ID in the profile dropdown menu.
+ * The font size is calculated as 0.9 times the base font size.
+ * The color is set to the value of the --logo-background-color variable.
+ */
 body>nav>.nav>.profile-dropdown>ul>li:nth-child(1)>.id {
     font-size: calc(var(--font-size) * 0.9);
     color: var(--logo-background-color);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule sets the animation duration and delay for the second list item in the profile dropdown menu.
+ * The animation duration is set to 0.3 seconds.
+ * The animation delay is set to 0.1 seconds.
+ */
 body>nav>.nav>.profile-dropdown>ul>li:nth-child(2) {
     animation-duration: 0.3s;
     animation-delay: 0.1s;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule sets the animation duration and delay for the third list item in the profile dropdown menu.
+ * The animation duration is set to 0.4 seconds.
+ * The animation delay is set to 0.2 seconds.
+ */
 body>nav>.nav>.profile-dropdown>ul>li:nth-child(3) {
     animation-duration: 0.4s;
     animation-delay: 0.2s;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule sets the animation duration and delay for the fourth list item in the profile dropdown menu.
+ * The animation duration is set to 0.5 seconds.
+ * The animation delay is set to 0.3 seconds.
+ */
 body>nav>.nav>.profile-dropdown>ul>li:nth-child(4) {
     animation-duration: 0.5s;
     animation-delay: 0.3s;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule sets the animation duration and delay for the fifth list item in the profile dropdown menu.
+ * The animation duration is set to 0.6 seconds.
+ * The animation delay is set to 0.4 seconds.
+ */
 body>nav>.nav>.profile-dropdown>ul>li:nth-child(5) {
     animation-duration: 0.6s;
     animation-delay: 0.4s;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule is used to show the profile dropdown menu when the profile image input is checked.
+ * It sets the display property of the dropdown menu to 'flex' and the flex-direction to 'column'.
+ * This makes the dropdown menu appear as a vertical list.
+ */
 body>nav>.nav>.profile-dropdown>.profile-dropdown-image:has(input:checked)+ul {
     display: flex;
     flex-direction: column;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS animation is used to animate the entrance of list items in the profile dropdown menu.
+ * It defines the 'enter' animation, which is applied to list items.
+ * The animation changes the opacity and transform properties over a duration of 0.2 seconds.
+ * The 'ease' timing function is used to create a smooth transition.
+ * The 'forwards' fill-mode ensures that the animation stays at the end state when it finishes.
+ */
 @keyframes enter {
     from {
         opacity: 0;
@@ -464,11 +802,23 @@ body>nav>.nav>.profile-dropdown>.profile-dropdown-image:has(input:checked)+ul {
     }
 }
 
-/********************** Profile Mobile **********************************/
+/********************************************************************************************** Profile Mobile **********************************************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS block is responsible for styling the profile side menu in mobile view.
+ * It hides the profile side menu by default and applies necessary styles to its elements.
+ */
 body>nav>.nav>.profile-side {
     display: none;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS block is responsible for styling the profile side menu in mobile view.
+ * It hides the profile side menu by default and applies necessary styles to its elements.
+ */
 body>nav>.nav>.profile-side>.profile-side-image {
     display: flex;
     cursor: pointer;
@@ -477,23 +827,48 @@ body>nav>.nav>.profile-side>.profile-side-image {
     z-index: 9;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This rule ensures that the hamburger menu remains clickable even when the profile side menu is open.
+ * It increases the z-index of the hamburger menu when the profile side menu is open.
+ */
 body>nav>.nav:has(.profile-side>.profile-side-image>input:checked)>.menu-side>.hamburger-menu {
     z-index: 7;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS block is responsible for styling the profile image in the profile dropdown menu.
+ * It applies flex properties to align the image in the center.
+ * The cursor is set to pointer to indicate that the image is clickable.
+ * The width and height are set to max-content and a specific dimension respectively.
+ */
 body>nav>.nav>.profile-side>.profile-side-image>.profile-image {
     height: var(--nav-profile-image-dimension);
     width: var(--nav-profile-image-dimension);
     cursor: pointer;
 }
 
-
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This rule prevents the default behavior of the input element in the profile side menu.
+ * It hides the input element and prevents it from being interactable.
+ */
 body>nav>.nav>.profile-side>.profile-side-image input {
     appearance: none;
     outline: none;
     pointer-events: none;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS block is responsible for styling the profile side menu in mobile view.
+ * It hides the profile side menu by default and applies necessary styles to its elements.
+ */
 body>nav>.nav>.profile-side>ul {
     position: absolute;
     top: 0;
@@ -511,6 +886,12 @@ body>nav>.nav>.profile-side>ul {
     width: 100vw;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This rule ensures that the profile side menu appears when the corresponding input is checked.
+ * It applies a transformation to the menu to slide it into view.
+ */
 body>nav>.nav>.profile-side>.profile-side-image:has(input:checked)+ul {
     transform: translateX(0);
     list-style: none;
@@ -524,7 +905,13 @@ body>nav>.nav>.profile-side>.profile-side-image:has(input:checked)+ul {
 
 body>nav>.nav>.profile-side:has(input:checked) {}
 
-
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule styles the list items in the profile side menu of the navigation bar.
+ * It applies flex properties, sets the gap between items, and aligns them in a row-reverse direction.
+ * It also sets the background color, opacity, animation, and other visual properties.
+ */
 body>nav>.nav>.profile-side>ul>li {
     display: flex;
     gap: 0.5rem;
@@ -542,20 +929,44 @@ body>nav>.nav>.profile-side>ul>li {
     border-bottom: 0.2rem solid #fff;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule sets the dimensions of the SVG icons in the profile side menu.
+ * It uses a custom property --icon-dimension to calculate the width and height.
+ */
 body>nav>.nav>.profile-side>ul>li>svg {
     --icon-dimension: 24px;
     width: var(--icon-dimension);
     height: var(--icon-dimension);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule applies a brightness filter to the list items in the profile side menu when they are hovered over.
+ * It creates a visual effect to indicate interaction.
+ */
 body>nav>.nav>.profile-side>ul>li:hover {
     filter: brightness(0.9);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule applies a brightness filter to the list items in the profile side menu when they are actively clicked.
+ * It creates a visual effect to indicate interaction.
+ */
 body>nav>.nav>.profile-side>ul>li:active {
     filter: brightness(0.95);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule styles the first list item in the profile side menu.
+ * It sets the flex direction to column, aligns the items in the center, and applies a different animation duration.
+ */
 body>nav>.nav>.profile-side>ul>li:nth-child(1) {
     flex-direction: column;
     align-items: center;
@@ -564,35 +975,82 @@ body>nav>.nav>.profile-side>ul>li:nth-child(1) {
     background-color: #fff;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule removes the brightness filter applied to the first list item in the profile side menu when it is hovered over.
+ * This ensures that the original color of the item is visible when it is hovered over.
+ */
 body>nav>.nav>.profile-side>ul>li:nth-child(1):hover {
     filter: none;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule calculates and sets the dimensions of the profile image in the first list item of the profile side menu.
+ * The width and height are calculated as three times the value of the --nav-profile-image-dimension variable.
+ */
 body>nav>.nav>.profile-side>ul>li:nth-child(1)>.profile-image {
     width: calc(var(--nav-profile-image-dimension) * 3);
     height: calc(var(--nav-profile-image-dimension) * 3);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule sets the font size of the name in the first list item of the profile side menu.
+ * The font size is calculated as 1.2 times the base font size.
+ */
 body>nav>.nav>.profile-side>ul>li:nth-child(1)>.name {
     font-size: calc(var(--font-size) * 1.2);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule sets the font size and color of the ID in the first list item of the profile side menu.
+ * The font size is calculated as 0.9 times the base font size.
+ * The color is set to the value of the --logo-background-color variable.
+ */
 body>nav>.nav>.profile-side>ul>li:nth-child(1)>.id {
     font-size: calc(var(--font-size) * 0.9);
     color: var(--logo-background-color);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule sets the border-radius property for the first list item in the profile side menu.
+ * It creates a rounded top edge for the item.
+ */
 body>nav>.nav>.profile-side>ul>li:nth-child(2) {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule sets the border-radius property for the last list item in the profile side menu.
+ * It creates a rounded bottom edge for the item.
+ */
 body>nav>.nav>.profile-side>ul>li:last-child {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
 
-/********************** Bottom Nav ************************************/
+/********************************************************************************************** Bottom Nav ************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS block is responsible for styling the bottom navigation bar.
+ * It sets the width and height of the navigation bar, positions it at the bottom of the viewport,
+ * sets its z-index to ensure it appears above other elements, and sets its background color.
+ * The flex direction is set to row-reverse to align the options from right to left.
+ * The justify-content property is set to space-around to ensure equal spacing between the options.
+ * The padding and display properties are set to provide some space around the options and initially hide the navigation bar.
+ */
 body>.bottom-nav{
     width: 100vw;
     height: 5rem;
@@ -607,22 +1065,46 @@ body>.bottom-nav{
     display: none;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule styles the individual options within the bottom navigation bar.
+ * It sets the display and flex direction properties for each option, aligning the content in a column.
+ */
 body>.bottom-nav>.option{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/** 
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule styles the buttons within each option.
+ * It sets the border and width properties for each button, and applies a border radius.
+ */
 body>.bottom-nav>.option>button{
     border: none;
     width: 5rem;
     border-radius: 50px ;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule applies a brightness filter to the active button within each option.
+ * It sets the filter property to reduce the overall brightness of the button by 10%, making it appear slightly darker.
+ */
 body>.bottom-nav>.option>button:active{
     filter: brightness(0.9);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * This CSS rule sets the background color of the active button within each option.
+ * It sets the background-color property to a specific color, making it visually distinguishable from the other buttons.
+ */
 body>.bottom-nav>.option>button.active{
     background-color: var(--bottom-nav-active-btn-background-color);
 }

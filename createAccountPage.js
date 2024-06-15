@@ -1,8 +1,19 @@
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * Class representing a Card.
+ * @constructor
+ */
 class Card {
     constructor() {
 
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Method to handle the click event of the forget password button.
+     */
     forgetPasswordBtnAction() {
         const forgetPasswordBtn = document.getElementById("forget-password-btn");
         forgetPasswordBtn.addEventListener("click", (e) => {
@@ -11,6 +22,13 @@ class Card {
         });
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Toggle the visibility of the password input field.
+     * @param {HTMLButtonElement} togglePasswordVisibilityBtn - The HTMLButtonElement representing the toggle password visibility button.
+     * @param {HTMLInputElement} passwordInput - The HTMLInputElement representing the password input field.
+     */
     togglePasswordVisibility(togglePasswordVisibilityBtn, passwordInput) {
 
         togglePasswordVisibilityBtn.addEventListener("click", () => {
@@ -56,6 +74,11 @@ class Card {
         });
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Save the input value to session.
+     */
     saveInputValueToSession() {
         const inputs = document.querySelectorAll("input");
         const selects = document.querySelectorAll("select");
@@ -78,6 +101,12 @@ class Card {
             });
         });
     }
+
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Get the input value from session.
+     */
     getInputValueFromSession() {
         const inputs = document.querySelectorAll("input");
         const selects = document.querySelectorAll("select");
@@ -91,6 +120,12 @@ class Card {
         });
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Method to handle the resizing of the create account or login screen.
+     * It adjusts the layout and styling of the page elements based on the screen size.
+     */
     createAccountOrLoginScreenResize() {
         const pageHeader = document.getElementById("page-header");
         const createAccountOrLoginCardsContainer = document.getElementById(
@@ -102,6 +137,8 @@ class Card {
         const backgroundColor =
             getComputedStyle(root).getPropertyValue("--background-color");
 
+        // If the screen width is greater than the maximum mobile screen width,
+        // perform specific actions for desktop view
         if (screen.width > MAX_MOBILE_SCREEN_WIDTH) {
             //createBackgroundMovingImages();
             createAccountOrLoginCardsContainer.style.zIndex = "99999";
@@ -111,6 +148,7 @@ class Card {
                 }
             );
 
+            // Add event listener to handle visibility change
             document.addEventListener("visibilitychange", () => {
                 const body = document.body;
                 if (document.visibilityState === "visible") {
@@ -123,6 +161,8 @@ class Card {
             });
         }
 
+        // If the screen width is less than the maximum mobile screen width,
+        // perform specific actions for mobile view
         if (screen.width < MAX_MOBILE_SCREEN_WIDTH) {
             pageHeader.style.display = "block";
 
@@ -139,6 +179,16 @@ class Card {
         }
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+    * Method to handle the click event of the create account or login submit button.
+    * It validates the input fields, scrolls to the next card if any field is invalid,
+    * and prevents the form submission if any required field is empty or invalid.
+    * It also checks if the password and sure password fields match.
+    *
+    * @returns {void}
+    */
     createAccountOrLoginBtnCardSubmitForm() {
         const createAccountOrLoginSubmitBtn = document.getElementById(
             "create-account-or-login-submit-btn"
@@ -202,6 +252,11 @@ class Card {
         });
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Method to handle the click event of the back button.
+     */
     backBtnCardAction() {
         const backBtnsCards = document.querySelectorAll("[back-btn]");
         const createAccountOrLoginCardsContainer = document.getElementById(
@@ -224,6 +279,11 @@ class Card {
         });
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Method to handle the click event of the next button.
+     */
     nextBtnCardAction() {
         const nextBtnsCards = document.querySelectorAll("[next-btn]");
         const createAccountOrLoginCardsContainer = document.getElementById(
@@ -246,6 +306,11 @@ class Card {
         });
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Method to handle the click event of the first card go back button.
+     */
     firstCardGoBackBtnAction() {
         const firstCardGoBackBtn = document.getElementById("first-card-go-back-btn");
         firstCardGoBackBtn.addEventListener("click", () => {
@@ -253,6 +318,17 @@ class Card {
         });
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Method to create and manage the background moving images on the create account or login page.
+     * This method creates a div element with class "background-moving-images" and populates it with
+     * multiple rows of images. Each row contains multiple images that move from left to right.
+     * The images are randomly selected from a predefined array of background student images.
+     * The animation speed, number of rows and columns, and other related properties are calculated dynamically.
+     * The method also handles the infinite scrolling effect by removing the first image from each row and
+     * appending it to the end of the row.
+     */
     createBackgroundMovingImages() {
         const body = document.body;
         body.style.maxHeight = "100vh";
@@ -343,6 +419,16 @@ class Card {
         }, animationDelayInMileSeconds);
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Method to handle the auto change input on press event for OTP input.
+     * It listens to paste, input, and keydown events on the OTP input fields.
+     * When a paste event occurs, it sanitizes the clipboard data, removes spaces and hyphens,
+     * and populates the input fields accordingly.
+     * When an input event occurs, it focuses the next input field if the current input field is filled.
+     * When a keydown event occurs with the "Backspace" key, it focuses the previous input field if the current input field is empty.
+     */
     OTPAutoChangeInputOnPress() {
         const OTPInputContainer = document.getElementById("OTP-input-container");
         if (document.body.contains(OTPInputContainer)) {
@@ -377,56 +463,97 @@ class Card {
         }
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Method to handle the click event of the go to OTP page button.
+     * Navigates to the OTPPage.html when the button is clicked.
+     */
     goToOTPPageBtn() {
+        // Get the go to OTP page button element
         const goToOTPPageBtn = document.getElementById("go-to-OTP-page-btn");
+
+        // Check if the button exists in the document body
         if (document.body.contains(goToOTPPageBtn)) {
+            // Add a click event listener to the button
             goToOTPPageBtn.addEventListener("click", () => {
+                // Navigate to the OTPPage.html when the button is clicked
                 window.location.href = "OTPPage.html";
             })
         }
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Method to handle the click event of the go back button on the first card.
+     */
     forgetPasswordBtn() {
         const forgetPasswordBtn = document.getElementById("forget-password-btn");
         if (document.body.contains(forgetPasswordBtn)) {
-            forgetPasswordBtnAction();
+            this.forgetPasswordBtnAction();
         }
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Method to handle the click event of the go back button on the first card.
+     */
     firstCardGoBackBtn() {
         const firstCardGoBackBtn = document.getElementById("first-card-go-back-btn");
         if (document.body.contains(firstCardGoBackBtn)) {
-            firstCardGoBackBtnAction();
+            this.firstCardGoBackBtnAction();
         }
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Method to handle the click event of the next button.
+     */
     nextBtnCard() {
         const nextBtnsCards = document.querySelectorAll("[next-btn]");
         if (nextBtnsCards.length > 0) {
-            nextBtnCardAction();
+            this.nextBtnCardAction();
         }
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Method to handle the click event of the next button.
+     */
     backBtnCard() {
         const backBtnsCards = document.querySelectorAll("[back-btn]");
         if (backBtnsCards.length > 0) {
-            backBtnCardAction();
+            this.backBtnCardAction();
         }
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Toggle the visibility of the password input field.
+     */
     togglePasswordVisibilityBtn() {
         const togglePasswordVisibilityBtn = document.getElementById("eye-icon-container-password");
         if (document.body.contains(togglePasswordVisibilityBtn)) {
             const passwordInput = document.getElementById("student-password");
-            togglePasswordVisibility(togglePasswordVisibilityBtn, passwordInput);
+            this.togglePasswordVisibility(togglePasswordVisibilityBtn, passwordInput);
         }
     }
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Toggle the visibility of the password input field.
+     */
     toggleSurePasswordVisibilityBtn() {
         const togglePasswordVisibilityBtn = document.getElementById("eye-icon-container-sure-password");
         if (document.body.contains(togglePasswordVisibilityBtn)) {
             const passwordInput = document.getElementById("student-sure-password");
-            togglePasswordVisibility(togglePasswordVisibilityBtn, passwordInput);
+            this.togglePasswordVisibility(togglePasswordVisibilityBtn, passwordInput);
         }
     }
 

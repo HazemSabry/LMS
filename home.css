@@ -1,6 +1,6 @@
 :root{
     --story-image-dimension: 5rem;
-    --story-border-color: var(--button-color);
+    --story-border-color: var(--btn-color);
     --story-seen-border-color: var(--back-btn-background-color);
     --skelton-color: #e2e2e2;
 
@@ -8,21 +8,52 @@
     --ad-image-dimension: 60VW;
     --indicator-active-color: var(--logo-prim-color);
 }
-/********************* Stories *******************************/
+/*********************************************************************************** Stories ***********************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block is responsible for styling the stories section on the page.
+ * It includes the scrollable container, story containers, and story images.
+ */
 body>.page-body>.stories-section{
+    /* Enables horizontal scrolling for the stories section */
     overflow-x: scroll;
+
+    /* Sets the width of the stories section to be 100vw - 1rem */
     width: calc(100vw - 1rem);
+
+    /* Displays the stories in a row, with the most recent story at the end */
     display: flex;
     flex-direction: row-reverse;
+
+    /* Adds a gap of 0.5rem between each story */
     gap: 0.5rem;
+
+    /* Adds padding of 2rem around the stories section */
     padding: 2rem;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block targets the ::-webkit-scrollbar element within the stories-section.
+ * It sets the width and height of the scrollbar to 0, effectively hiding it.
+ * This is done to create a seamless scrolling experience for the stories section.
+ */
 body>.page-body>.stories-section::-webkit-scrollbar{
     width: 0;
     height: 0;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block targets the story-container within the stories-section.
+ * It sets the appearance and behavior of the story-container.
+ *
+ * @class story-container
+ * @description This class is used to style the individual story containers in the stories section.
+ */
 body>.page-body>.stories-section>.story-container{
     border-radius: 50%;
     border: 0.2rem solid var(--story-border-color);
@@ -30,6 +61,15 @@ body>.page-body>.stories-section>.story-container{
     cursor: pointer;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block targets the story element within the story-container.
+ * It sets the background color, minimum width, height, and border radius of the story element.
+ *
+ * @class story
+ * @description This class is used to style the individual story elements in the story containers.
+ */
 body>.page-body>.stories-section>.story-container>.story {
     background-color: var(--skelton-color);
     min-width: var(--story-image-dimension);
@@ -37,7 +77,13 @@ body>.page-body>.stories-section>.story-container>.story {
     border-radius: 50%;
 }
 
-/********************* Teachers & Ads *******************************/
+/*********************************************************************************** Teachers & Ads ***********************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block targets the main sections of the page: teachers-section and ads-section.
+ * It sets the display, flex-direction, align-items, gap, and padding properties for these sections.
+ */
 body>.page-body>.teachers-section,
 body>.page-body>.ads-section{
     display: flex;
@@ -47,12 +93,26 @@ body>.page-body>.ads-section{
     padding: 2rem;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block targets the title elements within the teachers-section and ads-section.
+ * It sets the font size and weight for these title elements.
+ */
 body>.page-body>.teachers-section>.title,
 body>.page-body>.ads-section>.title{
     font-size: calc(var(--font-size) * 1.5);
     font-weight: 600;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block targets the body>.page-body>.teachers-section>.body element.
+ * It sets the display, flex-direction, flex-wrap, justify-content, and gap properties for this element.
+ * This block is responsible for arranging the teacher images in a row, wrapping them to the next line if necessary,
+ * and aligning them to the right side of the teachers-section.
+ */
 body>.page-body>.teachers-section>.body{
     display: flex;
     flex-direction: row;
@@ -61,13 +121,52 @@ body>.page-body>.teachers-section>.body{
     gap: 1rem;
 }
 
-body>.page-body>.teachers-section>.body>.teacher-image-container{
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block targets the teacher-image-container within the teachers-section.
+ * It sets the appearance and behavior of the teacher-image-container.
+ *
+ * @class teacher-image-container
+ * @description This class is used to style the individual teacher image containers in the teachers section.
+ */
+body>.page-body>.teachers-section>.body>.teacher-image-container {
+    /**
+     * Sets the background color of the teacher-image-container.
+     * The default value is var(--skelton-color), which is a light gray color.
+     */
     background-color: var(--skelton-color);
+
+    /**
+     * Sets the minimum width of the teacher-image-container.
+     * The value is defined by the variable --teacher-image-dimension, which is currently set to 10rem.
+     */
     min-width: var(--teacher-image-dimension);
+
+    /**
+     * Sets the height of the teacher-image-container.
+     * The height is calculated as a percentage of the minimum width, with a value of 0.75.
+     */
     height: calc(var(--teacher-image-dimension) * 0.75);
+
+    /**
+     * Sets the border radius of the teacher-image-container.
+     * The value is 20px, which creates a rounded corner effect.
+     */
     border-radius: 20px;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block targets the body>.page-body>.ads-section>.body element.
+ * It sets the display, flex-direction, flex-wrap, justify-content, gap, and width properties for this element.
+ * This block is responsible for arranging the ad images in a row, wrapping them to the next line if necessary,
+ * and aligning them to the right side of the ads-section.
+ * The width of the container is calculated as 100vw - 4rem to ensure that the ads do not overflow the viewport.
+ * The overflow-x property is set to scroll to enable horizontal scrolling for the ads section.
+ * The scroll-snap-type property is set to x mandatory to ensure that the ads snap to the nearest scroll position.
+ */
 body>.page-body>.ads-section>.body{
     display: flex;
     flex-direction: row-reverse;
@@ -78,19 +177,68 @@ body>.page-body>.ads-section>.body{
     scroll-snap-type: x mandatory;
 }
 
-body>.page-body>.ads-section>.body>.ad-container{
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block targets the ad-container within the ads-section.
+ * It sets the appearance and behavior of the ad-container.
+ *
+ * @class ad-container
+ * @description This class is used to style the individual ad containers in the ads section.
+ */
+body>.page-body>.ads-section>.body>.ad-container {
+    /**
+     * Sets the background color of the ad-container.
+     * The default value is var(--skelton-color), which is a light gray color.
+     */
     background-color: var(--skelton-color);
+
+    /**
+     * Sets the minimum width of the ad-container.
+     * The value is defined by the variable --ad-image-dimension, which is currently set to 60vw.
+     */
     min-width: var(--ad-image-dimension);
+
+    /**
+     * Sets the height of the ad-container.
+     * The height is calculated as a percentage of the minimum width, with a value of 0.4.
+     */
     height: calc(var(--ad-image-dimension) * 0.4);
+
+    /**
+     * Sets the border radius of the ad-container.
+     * The value is 20px, which creates a rounded corner effect.
+     */
     border-radius: 20px;
+
+    /**
+     * Sets the ad-container to snap to the center of the container.
+     */
     scroll-snap-align: center;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block targets the ::-webkit-scrollbar element within the stories-section.
+ * It sets the width and height of the scrollbar to 0, effectively hiding it.
+ * This is done to create a seamless scrolling experience for the stories section.
+ */
 body>.page-body>.ads-section>.body::-webkit-scrollbar{
     width: 0;
     height: 0;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * @description This CSS block targets the .indicators-container element within the ads-section.
+ * It sets the display, flex-direction, justify-content, and width properties for this element.
+ * The purpose of this block is to create a container for the ad indicators, which are used to show the user which ad is currently being displayed.
+ * The flex-direction property is set to row-reverse to ensure that the indicators are displayed in reverse order, from right to left.
+ * The justify-content property is set to center to ensure that the indicators are centered within the container.
+ * The width property is set to 100vw to ensure that the container takes up the full width of the viewport.
+ */
 .indicators-container {
     display: flex;
     flex-direction: row-reverse;
@@ -98,26 +246,94 @@ body>.page-body>.ads-section>.body::-webkit-scrollbar{
     width: 100vw;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * @description This CSS block targets the.ad-indicator element within the indicators-container.
+ * It sets the appearance and behavior of the ad-indicator.
+ *
+ * @class ad-indicator
+ * @description This class is used to style the individual ad indicators in the ads section.
+ */
 .indicators-container>.ad-indicator {
+    /**
+     * Sets the background color of the ad-indicator.
+     * The default value is var(--skelton-color), which is a light gray color.
+     */
     background-color: var(--skelton-color);
+
+    /**
+     * Sets the width of the ad-indicator.
+     * The value is 10px, which creates a small square shape.
+     */
     width: 10px;
+
+    /**
+     * Sets the height of the ad-indicator.
+     * The value is 10px, which creates a small square shape.
+     */
     height: 10px;
+
+    /**
+     * Sets the border radius of the ad-indicator.
+     * The value is 5px, which creates a rounded corner effect.
+     */
     border-radius: 5px;
+
+    /**
+     * Sets the margin of the ad-indicator.
+     * The value is 10px, which creates spacing between the indicators.
+     */
     margin: 10px;
+
+    /**
+     * Sets the cursor of the ad-indicator to pointer.
+     * This allows the user to interact with the indicators by clicking on them.
+     */
     cursor: pointer;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block targets the .ad-indicator element within the indicators-container when it has the class "active".
+ * It applies a transform scale of 1.6 to the ad-indicator and changes its background color to var(--indicator-active-color).
+ */
 .indicators-container>.ad-indicator.active {
+    /**
+     * Applies a transform scale of 1.6 to the ad-indicator.
+     * This enlarges the ad-indicator when it is active.
+     */
     transform: scale(1.6);
+
+    /**
+     * Changes the background color of the ad-indicator to var(--indicator-active-color).
+     * This sets the color of the active ad-indicator.
+     */
     background-color: var(--indicator-active-color);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * @media (max-width: 768px) - This media query targets devices with a maximum width of 768 pixels.
+ * It is used to adjust the layout and styling of the page for smaller screens.
+ */
 @media (max-width: 768px) {
-    :root{
+    :root {
+        /**
+         * --ad-image-dimension: calc(100vw - 4rem) - This CSS variable is used to define the width of the ad images.
+         * It is calculated as a percentage of the viewport width, with a value of 100vw - 4rem.
+         * This ensures that the ad images do not overflow the viewport on smaller screens.
+         */
         --ad-image-dimension: calc(100vw - 4rem);
     }
 
     .indicators-container>.ad-indicator {
+        /**
+         * margin: 5px - This CSS property sets the margin of the ad indicators.
+         * It is reduced to 5px on smaller screens to ensure that the indicators do not overlap.
+         */
         margin: 5px;
     }
 }

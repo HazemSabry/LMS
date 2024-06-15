@@ -17,14 +17,38 @@ function initialize() {
     if (screen.width < MAX_MOBILE_SCREEN_WIDTH) {
         html.style.fontSize = "16px";
     }
+
+    technicalSupportBtnVisibility();
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * mobileGoBackBtnAction - This function adds a click event listener to the mobileGoBackBtn element.
+ * If the screen width is less than MAX_MOBILE_SCREEN_WIDTH, clicking the button will navigate back in the browser history.
+ */
 function mobileGoBackBtnAction() {
     if (screen.width < MAX_MOBILE_SCREEN_WIDTH) {
         const mobileGoBackBtn = document.getElementById("mobile-go-back-btn");
         mobileGoBackBtn.addEventListener("click", () => {
             window.history.back();
         });
+    }
+}
+
+function technicalSupportBtnVisibility() {
+    const technicalSupportBtn = document.getElementById("technical-support-btn");
+    if (!technicalSupportBtn) return;
+
+    const technicalSupportBtnCheckbox = localStorage.getItem("technical-support-btn-checkbox");
+    if (technicalSupportBtnCheckbox === null) {
+        localStorage.setItem("technical-support-btn-checkbox", false);
+    }
+    else if (technicalSupportBtnCheckbox === "true") {
+        technicalSupportBtn.style.display = "none";
+    }
+    else if (technicalSupportBtnCheckbox === "false") {
+        technicalSupportBtn.style.display = "block";
     }
 }
 

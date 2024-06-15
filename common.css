@@ -4,7 +4,7 @@
     --welcome-page-image-dimension: calc(150px * var(--screen-scale));
     --welcome-page-image-gap: calc(1rem * var(--screen-scale));
     --welcome-page-image-background-color: #D0BCFF;
-    --button-color: #6750A4;
+    --btn-color: #6750A4;
     --welcome-page-not-text-color: #948CA0;
     --logo-background-color: #757575;
     --logo-prim-color: #BDBDBD;
@@ -14,12 +14,16 @@
     --welcome-page-image-animation-duration: 60s;
     --background-image-dimension: 150px;
     --number-of-background-images-per-row:15;
-    --next-btn-background-color:var(--button-color);
+    --next-btn-background-color:var(--btn-color);
     --back-btn-background-color: #EADDFF;
     --error-color: #BA1A1A;
     --input-field-background-color: #E7E0E8;
     --input-field-icon-dimension: 24px;
     --create-account-page-logo-dimensions: calc(6rem * var(--screen-scale));
+
+    --go-back-heder-btn-transform-rotate: rotate(0deg);
+    --page-flex-direction: row-reverse;
+    --text-align: right;
 }
 
 html {
@@ -30,18 +34,41 @@ html {
 *,
 *::before,
 *::after {
+    /* This CSS block sets the box-sizing property to border-box for all elements in the document.
+    This ensures that the padding and border are included in the element's total width and height.
+    It also sets the margin property to 0, which means that there will be no space between elements by default.
+    The font-family property is set to "Alexandria", which is a specific font that can be used throughout the document. */
     box-sizing: border-box;
     margin: 0;
     font-family: "Alexandria", sans-serif;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS block is responsible for setting the minimum height, width, and overflow-x property of the body element.
+ * It ensures that the body element has a minimum height and width of 100vh and 100vw respectively, and that it overflows in the x-axis.
+ * This is done to create a full-screen layout with a scrollable content.
+ */
 body {
     min-height: 100vh;
     width: 100vw;
     overflow-x: hidden;
 }
 
-/************* Background Moving Images ****************/
+/********************************************************************************************************************** Background Moving Images *************************************************************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This section is responsible for creating a moving background effect.
+ * It uses a container with class 'background-moving-images' to hold the images.
+ * The images are set as background images of divs inside the container.
+ * The container is positioned absolutely to cover the entire viewport.
+ * The images are set to move at different speeds to create a parallax effect.
+ * The 'pointer-events' property is set to 'none' to prevent interaction with the images.
+ * The background color is set to a semi-transparent black color to create a blur effect.
+ * The filter property is used to apply a blur effect to the background.
+ */
 body>.background-moving-images{
     width: 100vw;
     max-height: "100vh";
@@ -54,6 +81,15 @@ body>.background-moving-images{
     filter: blur(3.5px);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This is a CSS rule that sets up the container for the moving background images.
+ * The container is set to have no pointer events, meaning it cannot be clicked or interacted with.
+ * The container is positioned relatively, which allows us to position its children absolutely within it.
+ * The container's height is set to a variable --background-image-dimension, which is expected to be defined elsewhere in the CSS.
+ * The container's width is set to 100vw, which means it will span the full width of the viewport.
+*/
 body>.background-moving-images>.background-moving-images-row{
     pointer-events: none;
     position: relative;
@@ -61,6 +97,15 @@ body>.background-moving-images>.background-moving-images-row{
     width: 100vw;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS rule sets the dimensions of the background images.
+ * The dimensions are defined as CSS custom properties (--background-image-dimension).
+ * The min-width, max-width, min-height, and max-height properties ensure that the images maintain their aspect ratio.
+ * The position property is set to absolute to allow the images to overlap and create a moving effect.
+ * The filter property is used to apply a brightness filter to the images, making them appear darker.
+ */
 body>.background-moving-images>.background-moving-images-row>.background-image{
     min-width: var(--background-image-dimension);
     max-width: var(--background-image-dimension);
@@ -80,8 +125,15 @@ body>.background-moving-images>.background-moving-images-row>.background-image{
     }
 }
 
-/*************************** Page Header *********************************/
-
+/************************************************************************************************************************************ Page Header ******************************************************************************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS rule sets the position of the navigation bar to fixed at the top of the page.
+ * It also ensures that the navigation bar stays at the top even when scrolling.
+ * The z-index property is used to stack the navigation bar on top of other elements on the page.
+ * The width of the navigation bar is set to 100% to cover the entire width of the viewport.
+ */
 body>nav{
     position: fixed;
     z-index: 99999999;
@@ -95,6 +147,17 @@ body>nav>.page-header {
     display: none;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS rule sets the styling for the page title in the navigation bar.
+ * It uses flexbox properties to align the title in a row-reverse direction,
+ * with a gap of 1rem between the logo and the title text.
+ * The padding is set to 1.5rem on the top and bottom, and 1rem on the left and right.
+ * The font size is set to 1.2 times the base font size, and the font weight is set to 600 (bold).
+ * The width is set to 100% to ensure it takes up the full width of its parent container.
+ * The background color is set to the value of the --background-color variable.
+*/
 body>nav>.page-header>.page-title {
     display: flex;
     flex-direction: row-reverse;
@@ -108,13 +171,26 @@ body>nav>.page-header>.page-title {
 
 body>nav>.page-header>.page-title>svg{
     cursor: pointer;
+        transform: var(--go-back-heder-btn-transform-rotate);
 }
 
-/****************** create-account-or-login-logo-section ******************/
+/************************************************************************************************************************************* create-account-or-login-logo-section ***************************************************************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS rule is used to style the logo section of the create account or login card.
+ * It applies padding to the section based on the screen scale.
+*/
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-logo-section {
     padding: calc(3rem * var(--screen-scale)) calc(3rem * var(--screen-scale)) calc(2rem * var(--screen-scale)) calc(3rem * var(--screen-scale));
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS rule is used to style the logo section of the create account page.
+ * It sets the background color, border radius, width, height, and position of the logo.
+*/
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-logo-section>.logo {
     background-color: var(--logo-background-color);
     border-radius: 50%;
@@ -125,6 +201,16 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     transform: translateX(-50%);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS rule is used to style the logo section of the create account page.
+ * It sets the background color, border radius, width, height, and position of the logo.
+ * The logo is positioned absolutely at the center of the logo section.
+ * The width and height of the logo are set to the value of the --create-account-page-logo-dimensions variable.
+ * The clip-path property is used to create a polygon shape for the logo.
+ * The points of the polygon are defined as (15%, 15%), (85%, 15%), (85%, 85%), and (15%, 85%).
+*/
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-logo-section>.logo>.center-rectangular {
     position: absolute;
     background-color: var(--logo-prim-color);
@@ -133,6 +219,17 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     clip-path: polygon(15% 15%, 85% 15%, 85% 85%, 15% 85%);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS rule is used to style the logo section of the create account page.
+ * It sets the background color, border radius, width, height, and position of the logo.
+ * The logo is positioned absolutely at the center of the logo section.
+ * The width and height of the logo are set to the value of the --create-account-page-logo-dimensions variable.
+ * The clip-path property is used to create a polygon shape for the logo.
+ * The points of the polygon are defined as (15%, 15%), (85%, 15%), (85%, 85%), and (15%, 85%).
+ * The logo-center-triangular class is applied to the logo to create a triangular shape.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-logo-section>.logo>.center-triangular {
     position: absolute;
     background-color: var(--logo-center-color);
@@ -141,6 +238,14 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     clip-path: polygon(15% 15%, 50% 85%, 85% 15%);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This section contains the styling for the logo title within the create account or login card.
+ *
+ * @section create-account-or-login-logo-section
+ * @memberof create-account-or-login-card
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-logo-section>.logo-title {
     width: fit-content;
     position: relative;
@@ -149,21 +254,42 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     padding: calc(var(--font-size));
 }
 
-/***************** create-account-or-login-cards ***************************/
+/************************************************************************************************************************** create-account-or-login-cards ************************************************************************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS block is responsible for the styling of the create-account-or-login-cards-container.
+ * It includes the necessary properties to create a scrollable, snappable container for the login/signup forms.
+*/
 body>.create-account-or-login-cards-container {
     width: 100%;
     min-height: 100vh;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: var(--page-flex-direction);
     overflow-x: auto;
+    /*
+    The scroll-snap-type property is used to create a snappable scrolling experience.
+    'x mandatory' means that the scrolling will be snapped along the x-axis and it is mandatory.
+    */
     scroll-snap-type: x mandatory;
 }
 
 body>.create-account-or-login-cards-container::-webkit-scrollbar {
+    /*
+    * The width and height of the scrollbar are set to 0 to hide it.
+    */
     width: 0;
     height: 0;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS block is responsible for styling the container that holds the login/signup card.
+ * It sets the minimum, maximum, and default width and height of the container,
+ * and aligns it in the center of the viewport.
+ * The scroll-snap-align property is used to make the container snap to the center when scrolling.
+*/
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container {
     min-width: 100%;
     width: 100%;
@@ -175,6 +301,12 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     scroll-snap-align: center;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This is the styling for the create-account-or-login-card.
+ * It includes the background color, border radius, max width, and box shadow.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card {
     background-color: var(--background-color);
     border-radius: 30px;
@@ -182,52 +314,102 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-/**************** create-account-or-login-form-section ********************/
+/********************************************************************************* create-account-or-login-form-section *************************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This section contains the styling for the form within the create account or login card.
+ * It includes the styling for the form title, information fields, input fields, buttons, etc.
+ *
+ * @section create-account-or-login-form-section
+ * @memberof create-account-or-login-card
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section {
     padding: 0 1rem;
     font-size: calc(var(--font-size) * 1);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS block is responsible for styling the form title in the create account or login card.
+ * It includes the display, flex direction, gap, and alignment properties.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.form-title {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: var(--page-flex-direction);
     gap: 1rem;
     align-items: center;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS rule sets the dimensions and style of the icon within the form title.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.form-title>.icon {
     width: calc(var(--input-field-icon-dimension) * 1.7);
     height: calc(var(--input-field-icon-dimension) * 1.7);
     color: #fff;
     padding: 0.7rem;
-    background-color: var(--button-color);
+    background-color: var(--btn-color);
     border-radius: 50%;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS rule is used to style the information fields within the create account or login card.
+ * It includes the styling for the form title, information fields, input fields, buttons, etc.
+ *
+ * @section create-account-or-login-form-section
+ * @memberof create-account-or-login-card
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: var(--page-flex-direction);
     flex-wrap: wrap;
     gap: 1rem;
     padding: 1rem 0;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This section contains the styling for the country and city input container in the create account or login form.
+ * It is a flex container with a row-reverse direction and a gap of 1rem.
+*/
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.country-and-city-input-container {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: var(--page-flex-direction);
     gap: 1rem;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS rule sets the minimum width and width of the input container,
+ * and aligns the elements inside it. It also positions the input container
+ * relative to its parent.
+*/
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.country-and-city-input-container>.input-container {
     min-width: calc(50%-0.5rem);
     width: 100%;
     display: flex;
     align-items: center;
-    flex-direction: row-reverse;
+    flex-direction: var(--page-flex-direction);
     position: relative;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This section contains the styling for the input container within the create account or login form section.
+ * It includes the positioning of the icon and the input field.
+ * The icon is positioned at the right side of the input field with a specified width and height.
+ * The input field has a specified font size, background color, border, box shadow, min-width, width, and padding.
+*/
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>.icon,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.country-and-city-input-container>.input-container>.icon {
     position: absolute;
@@ -236,6 +418,13 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     height: var(--input-field-icon-dimension);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This section contains the styling for the eye icon that toggles the visibility of the password input field.
+ * It positions the icon at the right side of the input field with a specified width and height.
+ * The icon has a specified cursor property to indicate that it is clickable.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>.eye-icon-container {
     position: absolute;
     left: 0.5rem;
@@ -244,11 +433,29 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     cursor: pointer;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule sets the dimensions of the eye icon within the password input field.
+ * The dimensions are defined using CSS variables --input-field-icon-dimension.
+ * This ensures consistency and flexibility in managing the dimensions of the eye icon.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>.eye-icon-container>.icon{
     width: var(--input-field-icon-dimension);
     height: var(--input-field-icon-dimension);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This section contains the styling for the input container within the create account or login form section.
+ * It includes the positioning of the icon and the input field.
+ * The icon is positioned at the right side of the input field with a specified width and height.
+ * The input field has a specified font size, background color, border, box shadow, min-width, width, and padding.
+ *
+ * @section create-account-or-login-form-section
+ * @memberof create-account-or-login-card
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>input,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>select,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.country-and-city-input-container>.input-container>input,
@@ -258,19 +465,35 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     border: none;
     box-shadow: 0 1px 0 0 #000;
     min-width: calc(50% - 0.5rem);
-    text-align: right;
+    text-align: var(--text-align);
     width: 100%;
     padding: calc(1rem * var(--screen-scale)) 3rem;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block is responsible for styling the input fields within the create account or login form section.
+ * It includes the focus styles for the input fields, which change the appearance when the user interacts with them.
+ * The focus styles apply to both input fields and select elements within the form.
+ * The focus styles use the 'outline' property to remove the default browser outline and apply a custom box-shadow instead.
+ * The box-shadow is set to a light gray color (var(--btn-color)) to provide visual feedback when the user interacts with the input fields.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>input:focus,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>select:focus,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.country-and-city-input-container>.input-container>input:focus,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.country-and-city-input-container>.input-container>select:focus {
     outline: none;
-    box-shadow: 0 2px 0 0  var(--button-color);
+    box-shadow: 0 2px 0 0  var(--btn-color);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule sets the appearance of select elements within the form.
+ * It changes the text color, cursor, and removes the default browser appearance.
+ * The -moz-appearance and -webkit-appearance properties are used for Firefox and Chrome respectively.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>select,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.country-and-city-input-container>.input-container>select {
     color: #606060;
@@ -281,20 +504,47 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     -webkit-appearance: none;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule is used to hide the default browser appearance of the select elements.
+ * The display: none; property is used to hide the select elements.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>select::-ms-expand,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.country-and-city-input-container>.input-container>select::-ms-expand {
     display: none;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule is used to remove the default spin button appearance in number input fields.
+ * It is specifically targeting Webkit browsers.
+ * The '-webkit-outer-spin-button' and '-webkit-inner-spin-button' selectors are used to target the spin buttons.
+ * The '-webkit-appearance: none;' property is used to remove the default browser appearance.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>input::-webkit-outer-spin-button,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block is responsible for styling the input fields within the form section of the create account or login card.
+ * It includes the positioning of the icon and the input field. The icon is positioned at the right side of the input field with a specified width and height.
+ * The input field has a specified font size, background color, border, box shadow, min-width, width, and padding.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-container>input[type=number] {
     -moz-appearance: textfield;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block is responsible for styling the checkbox container in the form section of the create account or login card.
+ * It sets the width to 100% of the parent container, aligns the checkbox and its label to the right, and adds some gap between them.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-checkbox-container {
     width: 100%;
     display: flex;
@@ -303,21 +553,53 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     gap: 0.5rem;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule is used to style the checkbox input element within the checkbox container. * It sets the cursor property to pointer,
+ * indicating that the user can interact with the checkbox. 
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.input-checkbox-container>input[type=checkbox] {
     cursor: pointer;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block is responsible for styling the form buttons within the create account or login form section.
+ * It sets the width to 100% of the parent container, aligns the buttons to the right, and adds some gap between them.
+ *
+ * @section create-account-or-login-form-section
+ * @memberof create-account-or-login-card
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container {
     width: 100%;
     display: flex;
+    flex-direction: var(--page-flex-direction);
     gap: 1rem;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block is responsible for styling the stacked form buttons within the create account or login form section.
+ * It sets the flex-direction to column and adds some gap between the buttons.
+ *
+ * @section create-account-or-login-form-section
+ * @memberof create-account-or-login-card
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-stack-buttons-container {
     flex-direction: column;
     gap: 0;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block is responsible for styling the 'Next' and 'Back' buttons in the form section of the create account or login card.
+ * The buttons have a font size calculated based on the global font size variable, a border of none, a minimum width of 50% of the parent container minus 0.5rem, a width of 100%, padding of 0.5rem, a border radius of 50px, and a cursor of pointer.
+ * The font size, padding, and border radius are calculated based on the global font size variable.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.next-btn,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.back-btn {
     font-size: calc(var(--font-size) * 0.9);
@@ -329,42 +611,95 @@ body>.create-account-or-login-cards-container>.create-account-or-login-card-cont
     cursor: pointer;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule is used to style the 'Next' button in the stacked form buttons container. 
+ * It changes the font size of the button based on the global font size variable. 
+ * The button has a border radius of 5px and a cursor of pointer.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.next-stack-btn,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.back-stack-btn {
     font-size: calc(var(--font-size) * 1.1 );
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule is used to style the 'Next' button in the form section of the create account or login card.
+ * It changes the background color on hover, and reduces the brightness by 20% when hovered.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.next-btn:hover,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.back-btn:hover {
     filter: brightness(0.8);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule is used to style the 'Next' button in the form section of the create account or login card.
+ * It changes the background color on active, and reduces the brightness by 10% when active.
+ * The button has a border radius of 15px, and a box shadow for a subtle 3D effect.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.next-btn:active,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.back-btn:active {
     filter: brightness(0.9);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule is used to style the 'Next' button in the form section of the create account or login card.
+ * It changes the background color of the button to the color defined by the '--next-btn-background-color' CSS variable.
+ * The text color of the button is set to white.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.next-btn {
     background-color: var(--next-btn-background-color);
     color: #fff;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule is used to style the 'Back' button in the form section of the create account or login card.
+ * It changes the text color of the button to the color defined by the '--next-btn-background-color' CSS variable.
+ * The background color of the button is set to the color defined by the '--back-btn-background-color' CSS variable.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.back-btn {
     color: var(--next-btn-background-color);
     background-color: var(--back-btn-background-color);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule is used to style the 'Back' button in the stacked form buttons container.
+ * It changes the background color of the button to the color defined by the '--background-color' CSS variable.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.back-stack-btn{
     background-color: var(--background-color);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule is used to style the 'Back' button in the stacked form buttons container.
+ * It changes the background color of the button to the color defined by the '--background-color' CSS variable.
+ * The hover and active states of the button have a brightness filter applied to them.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.back-stack-btn:hover,
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.form-buttons-container>.back-stack-btn:active {
     filter: brightness(1);
 }
 
-/*************************** Technical Support button ************************************/
-
+/******************************************************************************************************************************* Technical Support button ****************************************************************************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule styles the 'Technical Support' button.
+ * It positions the button at the bottom right corner of the page,
+ * with a border radius, shadow, and a hover effect.
+ */
 body>.technical-support-btn{
     position: fixed;
     flex-direction: row-reverse;
@@ -383,11 +718,24 @@ body>.technical-support-btn{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
+/**
+ * @author Hazem Sabry
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule is used to apply a active effect on the 'Technical Support' button.
+ * It changes the brightness of the button when active, providing a visual feedback to the user.
+ */
 body>.technical-support:active{
     filter: brightness(0.9);
 }
 
-/*************************** Pop Up Message ************************************/
+/********************************************************************************************************************* Pop Up Message ******************************************************************************************************************************/
+/**
+ * This CSS rule styles the pop-up message background.
+ * It positions the background absolutely covering the entire screen,
+ * with a semi-transparent black color.
+ * The background has a high z-index to ensure it appears on top of other elements.
+ * The background is centered using flexbox properties.
+ */
 body>.pop-up-message-background{
     position: absolute;
     top: 0;
@@ -403,6 +751,14 @@ body>.pop-up-message-background{
     justify-content: center;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block is responsible for styling the pop-up message content.
+ * It is a flex container with the column direction,
+ * and a gap of 1rem.
+ * The message is centered using flexbox properties.
+ */
 body>.pop-up-message-background>.message{
     display: flex;
     flex-direction: column;
@@ -413,37 +769,87 @@ body>.pop-up-message-background>.message{
     border-radius: 25px;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block is responsible for styling the 'Next' button in the pop-up message.
+ * It is positioned at the bottom of the message,
+ * with a transparent background color,
+ * and a font color of the specified color.
+ * The button has a font size of 1.2 times the global font size,
+ * a margin of 1rem,
+ * and a cursor of pointer.
+ */
 body>.pop-up-message-background>.message>.next{
     align-self: flex-end;
     border: none;
     background-color: transparent;
-    color: var(--button-color);
+    color: var(--btn-color);
     font-size: calc(var(--font-size) * 1.2);
     margin: 1rem;
     cursor: pointer;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block is used to apply a hover effect on the 'Next' button in the pop-up message.
+ * It changes the brightness of the button when hovered,
+ * providing a visual feedback to the user.
+ */
 body>.pop-up-message-background>.message>.next:hover{
     filter: brightness(1.1);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block is used to apply an active effect on the 'Next' button in the pop-up message.
+ * It changes the brightness of the button when active,
+ * providing a visual feedback to the user.
+ */
 body>.pop-up-message-background>.message>.next:active{
     filter: brightness(0.9);
 }
 
-/************************* OTP **********************/
+/************************************************************************************************ OTP *********************************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule styles the 'OTP Form Title' in the create account or login form section.
+ * It sets the font size to 1.3 times the global font size variable,
+ * the font weight to 600 (bold),
+ * and the color to the color defined by the '--logo-background-color' CSS variable.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.form-title>.OTP-form-title{
     font-size: calc(var(--font-size) * 1.3);
     font-weight: 600;
     color: var(--logo-background-color);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block is responsible for styling the 'OTP Input Container' in the create account or login form section.
+ * It sets a gap of 1rem,
+ * a flex direction of row,
+ * and a justify content of center.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.OTP-input-container{
     gap:1rem;
     flex-direction: row;
     justify-content: center;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS block is responsible for styling the 'OTP Input Container' in the create account or login form section.
+ * It sets a gap of 1rem, a flex direction of row, and a justify content of center.
+ * The 'OTP Input Container' contains the input field for the one-time password (OTP) verification.
+ * The input field has a specified minimum width, padding, and font size, and is centered using flexbox properties.
+ * The input field also has rounded corners with a specified radius.
+ */
 body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.OTP-input-container>input{
     min-width: 5rem;
     padding: 1rem;

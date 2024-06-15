@@ -1,0 +1,175 @@
+:root{
+    --logo-dimensions: calc(6rem * var(--screen-scale));
+    --btn-background-color: var(--back-btn-background-color);
+}
+/************************************************************************************************************************************* logo-section ***************************************************************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS rule is used to style the logo section of the create account or login card.
+ * It applies padding to the section based on the screen scale.
+*/
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-logo-section {
+    padding: calc(3rem * var(--screen-scale)) calc(3rem * var(--screen-scale)) calc(2rem * var(--screen-scale)) calc(3rem * var(--screen-scale));
+}
+
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS rule is used to style the logo section of the create account page.
+ * It sets the background color, border radius, width, height, and position of the logo.
+*/
+body>.page-body>.logo-section>.logo {
+    background-color: var(--logo-background-color);
+    border-radius: 50%;
+    width: var(--logo-dimensions);
+    height: var(--logo-dimensions);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS rule is used to style the logo section of the create account page.
+ * It sets the background color, border radius, width, height, and position of the logo.
+ * The logo is positioned absolutely at the center of the logo section.
+ * The width and height of the logo are set to the value of the --logo-dimensions variable.
+ * The clip-path property is used to create a polygon shape for the logo.
+ * The points of the polygon are defined as (15%, 15%), (85%, 15%), (85%, 85%), and (15%, 85%).
+*/
+body>.page-body>.logo-section>.logo>.center-rectangular {
+    position: absolute;
+    background-color: var(--logo-prim-color);
+    width: var(--logo-dimensions);
+    height: var(--logo-dimensions);
+    clip-path: polygon(15% 15%, 85% 15%, 85% 85%, 15% 85%);
+}
+
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This CSS rule is used to style the logo section of the create account page.
+ * It sets the background color, border radius, width, height, and position of the logo.
+ * The logo is positioned absolutely at the center of the logo section.
+ * The width and height of the logo are set to the value of the --logo-dimensions variable.
+ * The clip-path property is used to create a polygon shape for the logo.
+ * The points of the polygon are defined as (15%, 15%), (85%, 15%), (85%, 85%), and (15%, 85%).
+ * The logo-center-triangular class is applied to the logo to create a triangular shape.
+ */
+body>.page-body>.logo-section>.logo>.center-triangular {
+    position: absolute;
+    background-color: var(--logo-center-color);
+    width: var(--logo-dimensions);
+    height: var(--logo-dimensions);
+    clip-path: polygon(15% 15%, 50% 85%, 85% 15%);
+}
+
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ * This section contains the styling for the logo title within the create account or login card.
+ *
+ * @section create-account-or-login-logo-section
+ * @memberof create-account-or-login-card
+ */
+body>.page-body>.logo-section>.logo-title {
+    width: fit-content;
+    position: relative;
+    left: calc(50% - var(--font-size) * 3);
+    font-size: calc(var(--font-size) * 2);
+    padding: calc(var(--font-size));
+}
+
+/************************************************************************************************************************************* setting-section ***************************************************************************************************************************/
+body>.page-body>.setting-section {
+    padding: 1rem;
+    text-align: var(--text-align);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+body>.page-body>.setting-section>.setting-title{
+    font-size: calc(var(--font-size)*1.4);
+}
+
+body>.page-body>.setting-section>.btn-container{
+    padding: 1rem;
+    display: grid;
+    align-items: center;
+    width: 100%;
+    border-radius: 20px ;
+}
+
+body>.page-body>.setting-section>.btn-container:hover{
+    background-color: #dbdada47;
+}
+
+body>.page-body>.setting-section>.btn-container:active {
+    background-color: #dbdada68;
+}
+
+body>.page-body>.setting-section>.btn-container>label{
+    display: flex;
+    flex-direction: var(--page-flex-direction);
+    justify-content: space-between;
+    align-items: center;
+}
+
+body>.page-body>.setting-section>.btn-container>label>.btn-label{
+    display: flex;
+    flex-direction: var(--page-flex-direction);
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+body>.page-body>.setting-section>.btn-container>label>.btn-label>.text>.description{
+    color: gray;
+}
+
+body>.page-body>.setting-section>.btn-container>label>button{
+    --width:4rem;
+    background-color: rgb(203, 203, 203);
+    width: var(--width);
+    height: calc(var(--width) * 0.5);
+    border: gray solid 2px;
+    border-radius:50px ;
+    display: flex;
+    flex-direction: var(--page-flex-direction);
+    align-items: center;
+    cursor: pointer;
+    pointer-events: none;
+    transition: all 0.3s linear;
+}
+
+body>.page-body>.setting-section>.btn-container>label>button>.circle{
+    --diminution:1.1rem;
+    width: var(--diminution);
+    height: var(--diminution);
+    background-color: gray;
+    border-radius: 50%;
+    position: relative;
+    right: 0;
+    transition: all 0.3s linear;
+}
+
+body>.page-body>.setting-section>.btn-container:has(input:checked)>label>button{
+    background-color: var(--btn-background-color);
+    flex-direction: var(--page-flex-direction);
+}
+
+body>.page-body>.setting-section>.btn-container:has(input:checked)>label>button>.circle{
+    right: 60%;
+    background-color: var(--btn-color);
+}
+
+body>.page-body>.setting-section>.btn-container>input{
+    width: 0;
+    height: 0;
+    opacity: 0;
+    z-index: -100;
+}

@@ -1,0 +1,82 @@
+:root {
+    --number-background-color: var(--welcome-page-image-background-color);
+    --course-background-color: var(--bottom-nav-background-color);
+}
+
+
+body>.page-body {
+    width: 100vw;
+    overflow-x: scroll;
+    display: flex;
+    scroll-snap-type: x mandatory;
+}
+
+body>.page-body>.my-courses,
+body>.page-body>.all-courses{
+    min-width: 100vw;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    gap: 1rem;
+    scroll-snap-align: center;
+}
+
+body>.page-body>.my-courses>.course,
+body>.page-body>.all-courses>.course {
+    display: flex;
+    flex-direction: row-reverse;
+    width: calc(20% - 1rem);
+    min-width: max-content;
+    gap: 1rem;
+    background-color: var(--course-background-color);
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+body>.page-body>.my-courses>.course:hover
+body>.page-body>.all-courses>.course:hover {
+    filter: brightness(0.95);
+}
+
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule applies a brightness filter of 0.9 to the course elements when they are active.
+ * This is typically used to visually indicate that the course has been selected or clicked on.
+ *
+ * @selector body>.page-body>.my-courses>.course:active, body>.page-body>.all-courses>.course:active
+ * @property filter - CSS property to apply visual effects to an element.
+ * @value brightness(0.9) - A brightness filter that reduces the overall brightness of the element by 90%.
+ */
+body>.page-body>.my-courses>.course:active,
+body>.page-body>.all-courses>.course:active{
+    filter: brightness(0.9);
+}
+
+/* body>.page-body>.course>.number {
+    font-size: calc(var(--font-size) * 1.2);
+    font-weight: 600;
+    background-color: var(--number-background-color);
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+} */
+
+body>.page-body>.course>.content {}
+
+body>.page-body>.my-courses>.course>.content>.title,
+body>.page-body>.all-courses>.course>.content>.title {
+    font-size: calc(var(--font-size) * 1.2);
+    font-weight: 400;
+}
+
+body>.page-body>.my-courses>.course>.content>.date
+body>.page-body>.all-courses>.course>.content>.date {
+    font-size: calc(var(--font-size) * 0.9);
+    font-weight: 300;
+}

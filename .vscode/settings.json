@@ -1,3 +1,4 @@
 {
-    "files.autoSaveWorkspaceFilesOnly": true
+    "files.autoSaveWorkspaceFilesOnly": true,
+    "liveServer.settings.port": 5501
 }
