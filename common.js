@@ -36,6 +36,18 @@ function mobileGoBackBtnAction() {
     }
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * technicalSupportBtnVisibility - This function checks the visibility of the technical support button.
+ * It retrieves the button element from the DOM and checks if it exists.
+ * Then, it retrieves the state of the button from the local storage.
+ * If the button state is not found in the local storage, it sets the default state to false.
+ * If the state is "true", it hides the button. If the state is "false", it shows the button.
+ *
+ * @param {HTMLButtonElement} technicalSupportBtn - The technical support button element.
+ * @param {string} technicalSupportBtnCheckbox - The state of the technical support button in the local storage.
+ */
 function technicalSupportBtnVisibility() {
     const technicalSupportBtn = document.getElementById("technical-support-btn");
     if (!technicalSupportBtn) return;

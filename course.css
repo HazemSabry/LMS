@@ -3,7 +3,15 @@
     --lesson-background-color: var(--bottom-nav-background-color);
 }
 
-
+/**
+ * @author Hazem Sabry
+ * @email hazemsabry20002@gmail.com
+ *  
+ * This CSS block sets the layout and styling for the page body.
+ * It defines the padding, flex direction, flex wrap, gap, and other properties.
+ *  
+ * @description The page body is the main container for the lessons on the page.
+ */
 body>.page-body{
     padding: 1rem;
     display: flex;
@@ -12,6 +20,13 @@ body>.page-body{
     gap: 1rem;
 }
 
+/**
+ * @author Hazem Sabry
+ * @email hazemsabry20002@gmail.com
+ *  
+ * This CSS block styles the lessons on the page.
+ * It sets the layout and appearance of each lesson.
+ */
 body>.page-body>.lesson{
     display: flex;
     flex-direction: row-reverse;
@@ -24,14 +39,45 @@ body>.page-body>.lesson{
     cursor: pointer;
 }
 
+/**
+ * @author Hazem Sabry
+ * @email hazemsabry20002@gmail.com
+ *  
+ * This CSS block defines the hover effect for the lessons on the page.
+ * When a user hovers over a lesson, it will apply a brightness filter of 0.95.
+ * This gives the illusion of the lesson becoming slightly brighter when the user interacts with it.
+ */
 body>.page-body>.lesson:hover{
     filter: brightness(0.95);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com 
+ *  
+ * This CSS block defines the active state of the lessons on the page.
+ * When a user clicks on a lesson, it will apply a brightness filter of 0.9.
+ * This gives the illusion of the lesson becoming slightly darker when the user interacts with it.
+ * @description The active state is triggered when a user clicks on a lesson.
+ */
 body>.page-body>.lesson:active {
     filter: brightness(0.9);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com 
+ *  
+ * This CSS block styles the lesson numbers on the page.
+ * It sets the appearance and properties of the lesson number element.
+ *
+ * @description The lesson number is a circular element with a font size of 1.2 times the base font size.
+ * It has a font weight of 600 and is centered both vertically and horizontally.
+ * The background color of the lesson number is determined by the --number-background-color variable.
+ * The width and height of the lesson number are both set to 3rem.
+ * The lesson number is a flex container with justify-content and align-items properties set to center.
+ * The border radius of the lesson number is set to 50%.
+ */
 body>.page-body>.lesson>.number{
     font-size: calc(var(--font-size) * 1.2);
     font-weight: 600;
@@ -46,6 +92,18 @@ body>.page-body>.lesson>.number{
 
 body>.page-body>.lesson>.content {}
 
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com 
+ *  
+ * This CSS block styles the lesson titles and dates on the page.
+ * It sets the appearance and properties of the lesson title and date elements.
+ *
+ * @description The lesson title is a text element with a font size of 1.2 times the base font size.
+ * It has a font weight of 400 and is centered within the lesson content.
+ * The lesson date is a text element with a font size of 0.9 times the base font size.
+ * It has a font weight of 300 and is also centered within the lesson content.
+ */
 body>.page-body>.lesson>.content>.title {
     font-size: calc(var(--font-size) * 1.2);
     font-weight: 400;

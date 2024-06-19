@@ -1,0 +1,143 @@
+/************************************************************************************************************************************ Card Header ******************************************************************************************************************************************/
+/**
+ * @author Hazem Sabry
+ * @email hazemsabry2002@gmail.com
+ *  
+ * This CSS rule sets the styling for the card header in the create-account-or-login-cards-container.
+ * It sets the width to 100% - 2rem, background color to transparent, and margin to 1rem.
+ * The purpose of this rule is to style the header of the card, which contains the page title and other elements.
+ */
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.card-header {
+    width: calc(100% - 2rem);
+    background-color: transparent;
+    margin: 1rem;
+}
+
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ *  
+ * This CSS rule sets the styling for the page title in the navigation bar.
+ * It uses flexbox properties to align the title in a row-reverse direction,
+ * with a gap of 1rem between the logo and the title text.
+ * The padding is set to 1.5rem on the top and bottom, and 1rem on the left and right.
+ * The font size is set to 1.2 times the base font size, and the font weight is set to 600 (bold).
+ * The width is set to 100% to ensure it takes up the full width of its parent container.
+ * The background color is set to the value of the --background-color variable.
+*/
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.card-header>.page-title {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+    padding-bottom: 0;
+    font-size: calc(var(--font-size) * 1);
+    font-weight: 600;
+    width: 100%;
+    background-color: var(--background-color);
+}
+
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry2002@gmail.com 
+ *  
+ * This CSS rule sets the text alignment of the page title in the navigation bar.
+ */
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.card-header>.page-title>p {
+    text-align: var(--text-align);
+}
+
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * 
+ * @section card-header
+ * @memberof nav
+ */
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.card-header>.page-title>svg {
+    width: calc(var(--input-field-icon-dimension) * 2);
+    height: calc(var(--input-field-icon-dimension) * 2);
+    color: #fff;
+    padding: 0.7rem;
+    background-color: var(--btn-color);
+    border-radius: 50%;
+}
+
+/************************************************************************************************************************************      ******************************************************************************************************************************************/
+/**
+ * @author Hazem Sabry
+ * @email hazemsabry2002@gmail.com
+ *  
+ * @description This CSS rule sets the height of the create-account-or-login-cards-container.
+ * It sets the height to max-content, which means it will automatically adjust its height based on its content.
+ * This is useful for ensuring that the container always fits its content without any unnecessary padding or margins.
+ */
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container{
+    height: max-content;
+}
+
+/**
+ * @author Hazem Sabry
+ * @email hazemsabry2002@gmail.com
+ *  
+ * @description This CSS rule sets the padding-top of the create-account-or-login-cards-container.
+ * It sets the padding-top to 0, which means there will be no padding space above the content.
+ * This is useful for ensuring that the container always fits its content without any unnecessary padding or margins.
+ */
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section{
+    padding-top: 0;
+}
+
+/************************************************************************************************************************************      ******************************************************************************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ *  
+ * @description This CSS rule sets the styling for the title in the information section of the create-account-or-login-cards-container. 
+ * It uses flexbox properties to align the title in a row direction, with a gap of 0.5rem between the title text. 
+ * The text-align property is used to align the title text according to the value of the --text-align variable.
+ */
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.title {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    text-align: var(--text-align);
+}
+
+/************************************************************************************************************************************      ******************************************************************************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ *  
+ * @description This CSS rule sets the font size of the OTP input field in the information section of the create-account-or-login-cards-container.
+ * It uses the --font-size variable to dynamically adjust the font size.
+ * The font size is set to 1.3 times the base font size.
+ */
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.OTP-input-container>input{
+    font-size: calc(var(--font-size) * 1.3);
+}
+
+/************************************************************************************************************************************      ******************************************************************************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @email hazemsabry2002@gmail.com
+ *  
+ * @description This CSS rule sets the styling for the warning message in the information section of the create-account-or-login-cards-container.
+ * It uses flexbox properties to align the warning message in a direction specified by the --page-flex-direction variable, with a gap of 1rem between the warning message content.
+ * The warning message has a background color set to the value of the --input-field-background-color variable, and a width of 100% to ensure it takes up the full width of its parent container.
+ * The padding is set to 1rem on the top and bottom, and 1rem on the left and right.
+ * The border-radius is set to 10px to give the warning message a rounded appearance.
+ * The font size is set to 0.83 times the base font size, which makes it slightly smaller than the default font size.
+ */
+body>.create-account-or-login-cards-container>.create-account-or-login-card-container>.create-account-or-login-card>.create-account-or-login-form-section>.information>.warning-message{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-direction: var(--page-flex-direction);
+    background-color: var(--input-field-background-color);
+    width: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: calc(var(--font-size) * 0.83);
+}

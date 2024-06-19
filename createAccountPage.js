@@ -5,8 +5,115 @@
  * @constructor
  */
 class Card {
-    constructor() {
+    /**
+     * @type {HTMLElement} - The forget Password Btn element.
+     */
+    forgetPasswordBtn;
+    /**
+     * @type {HTMLElement} - The inputs element.
+     */
+    inputs;
+    /**
+     * @type {HTMLElement} - The selects element.
+     */
+    selects;
+    /**
+     * @type {HTMLElement} - The page header element.
+     */
+    pageHeader;
+    /**
+     * @type {HTMLElement} - The create account or login cards container element.
+     */
+    createAccountOrLoginCardsContainer;
+    /**
+     * @type {HTMLElement} - The create account or login card containers element.
+     */
+    createAccountOrLoginCardContainers;
+    /**
+     * @type {HTMLElement} - The create account or login submit btn element.
+     */
+    createAccountOrLoginSubmitBtn;
+    /**
+     * @type {HTMLElement} - The password input element.
+     */
+    passwordInput;
+    /**
+     * @type {HTMLElement} - The sure password input element.
+     */
+    surePasswordInput;
+    /**
+     * @type {HTMLElement} - The back btns cards element.
+     */
+    backBtnsCards;
+    /**
+     * @type {HTMLElement} - The toggle password visibility btn element.
+     */
+    togglePasswordVisibilityBtn;
+    /**
+     * @type {HTMLElement} - The toggle sure password visibility btn element.
+     */
+    toggleSurePasswordVisibilityBtn;
+    /**
+     * @type {HTMLElement} - The next btns cards element.
+     */
+    nextBtnsCards;
+    /**
+     * @type {HTMLElement} - The first card go back btn element.
+     */
+    firstCardGoBackBtn;
+    /**
+     * @type {HTMLElement} - The go to OTP page btn element.
+     */
+    goToOTPPageBtn;
+    /**
+     * @type {HTMLElement} - The OTP input container element.
+     */
+    OTPInputContainer;
 
+    /**
+     * @author Hazem Sabry 
+     * @gmail hazemsabry2002@gmail.com
+     * Creates an instance.
+     */
+    constructor() {
+        this.forgetPasswordBtn = document.getElementById("forget-password-btn");
+        this.inputs = document.querySelectorAll("input");
+        this.selects = document.querySelectorAll("select");
+        this.pageHeader = document.getElementById("page-header");
+        this.createAccountOrLoginCardsContainer = document.getElementById(
+            "create-account-or-login-cards-container"
+        );
+        this.createAccountOrLoginCardContainers = document.querySelectorAll(
+            ".create-account-or-login-card-container"
+        );
+        this.createAccountOrLoginSubmitBtn = document.getElementById(
+            "create-account-or-login-submit-btn"
+        );
+        this.passwordInput = document.getElementById("student-password");
+        this.surePasswordInput = document.getElementById("student-sure-password");
+        this.backBtnsCards = document.querySelectorAll("[back-btn]");
+        this.togglePasswordVisibilityBtn = document.getElementById("eye-icon-container-password");
+        this.toggleSurePasswordVisibilityBtn = document.getElementById("eye-icon-container-sure-password");
+        this.nextBtnsCards = document.querySelectorAll("[next-btn]");
+        this.firstCardGoBackBtn = document.getElementById("first-card-go-back-btn");
+        this.goToOTPPageBtn = document.getElementById("go-to-OTP-page-btn");
+        this.OTPInputContainer = document.getElementById("OTP-input-container");
+    }
+
+    /**
+ * @author Hazem Sabry 
+ * @email hazemsabry20002@gmail.com
+ * Checks if a given component (HTML element) exists in the DOM.
+ *
+ * @param {HTMLElement} component - The HTML element to check for existence.
+ * @returns {boolean} - Returns true if the component exists in the DOM, false otherwise.
+ */
+    componentExisted(component) {
+        if (document.body.contains(component)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -15,8 +122,8 @@ class Card {
      * Method to handle the click event of the forget password button.
      */
     forgetPasswordBtnAction() {
-        const forgetPasswordBtn = document.getElementById("forget-password-btn");
-        forgetPasswordBtn.addEventListener("click", (e) => {
+        if (!this.componentExisted(this.forgetPasswordBtn)) return;
+        this.forgetPasswordBtn.addEventListener("click", (e) => {
             e.preventDefault();
             window.location.href = "ForgetPasswordPage.html";
         });
@@ -80,10 +187,7 @@ class Card {
      * Save the input value to session.
      */
     saveInputValueToSession() {
-        const inputs = document.querySelectorAll("input");
-        const selects = document.querySelectorAll("select");
-
-        inputs.forEach((input) => {
+        this.inputs.forEach((input) => {
             input.addEventListener("blur", (e) => {
                 sessionStorage.setItem(
                     `form input name=${e.target.name}`,
@@ -92,7 +196,7 @@ class Card {
             });
         });
 
-        selects.forEach((select) => {
+        this.selects.forEach((select) => {
             select.addEventListener("blur", (e) => {
                 sessionStorage.setItem(
                     `form select name=${e.target.name}`,
@@ -108,14 +212,11 @@ class Card {
      * Get the input value from session.
      */
     getInputValueFromSession() {
-        const inputs = document.querySelectorAll("input");
-        const selects = document.querySelectorAll("select");
-
-        inputs.forEach((input) => {
+        this.inputs.forEach((input) => {
             input.value = sessionStorage.getItem(`form input name=${input.name}`);
         });
 
-        selects.forEach((select) => {
+        this.selects.forEach((select) => {
             select.value = sessionStorage.getItem(`form select name=${select.name}`);
         });
     }
@@ -127,13 +228,6 @@ class Card {
      * It adjusts the layout and styling of the page elements based on the screen size.
      */
     createAccountOrLoginScreenResize() {
-        const pageHeader = document.getElementById("page-header");
-        const createAccountOrLoginCardsContainer = document.getElementById(
-            "create-account-or-login-cards-container"
-        );
-        const createAccountOrLoginCardContainers = document.querySelectorAll(
-            ".create-account-or-login-card-container"
-        );
         const backgroundColor =
             getComputedStyle(root).getPropertyValue("--background-color");
 
@@ -141,39 +235,43 @@ class Card {
         // perform specific actions for desktop view
         if (screen.width > MAX_MOBILE_SCREEN_WIDTH) {
             //createBackgroundMovingImages();
-            createAccountOrLoginCardsContainer.style.zIndex = "99999";
-            createAccountOrLoginCardContainers.forEach(
+            this.createAccountOrLoginCardsContainer.style.zIndex = "99999";
+            this.createAccountOrLoginCardContainers.forEach(
                 (createAccountOrLoginCardContainer) => {
                     createAccountOrLoginCardContainer.style.zIndex = "99999";
                 }
             );
 
             // Add event listener to handle visibility change
-            document.addEventListener("visibilitychange", () => {
-                const body = document.body;
-                if (document.visibilityState === "visible") {
-                    // const backgroundMovingImages = document.querySelector(
-                    //     ".background-moving-images"
-                    // );
-                    // body.removeChild(backgroundMovingImages);
-                    // createBackgroundMovingImages();
-                }
-            });
+            // document.addEventListener("visibilitychange", () => {
+            //     const body = document.body;
+            //     if (document.visibilityState === "visible") {
+            //         // const backgroundMovingImages = document.querySelector(
+            //         //     ".background-moving-images"
+            //         // );
+            //         // body.removeChild(backgroundMovingImages);
+            //         // createBackgroundMovingImages();
+            //     }
+            // });
         }
 
         // If the screen width is less than the maximum mobile screen width,
         // perform specific actions for mobile view
         if (screen.width < MAX_MOBILE_SCREEN_WIDTH) {
-            pageHeader.style.display = "block";
+            if (this.componentExisted(this.pageHeader)) {
+                this.pageHeader.style.display = "block";
+            }
 
-            createAccountOrLoginCardContainers.forEach(
+            this.createAccountOrLoginCardContainers.forEach(
                 (createAccountOrLoginCardContainer) => {
                     const createAccountOrLoginCard = createAccountOrLoginCardContainer.querySelector(".create-account-or-login-card");
                     createAccountOrLoginCard.style.boxShadow = "none";
                     createAccountOrLoginCardContainer.style.backgroundColor =
                         backgroundColor;
                     createAccountOrLoginCardContainer.style.alignItems = "flex-start";
-                    createAccountOrLoginCardContainer.style.paddingTop = "3rem";
+                    if (this.componentExisted(document.getElementById("page-header"))) {
+                        createAccountOrLoginCardContainer.style.paddingTop = "3rem";
+                    }
                 }
             );
         }
@@ -190,21 +288,11 @@ class Card {
     * @returns {void}
     */
     createAccountOrLoginBtnCardSubmitForm() {
-        const createAccountOrLoginSubmitBtn = document.getElementById(
-            "create-account-or-login-submit-btn"
-        );
-        const createAccountOrLoginCardsContainer = document.getElementById(
-            "create-account-or-login-cards-container"
-        );
-        const createAccountOrLoginCardContainers = document.querySelectorAll(
-            ".create-account-or-login-card-container"
-        );
-
-        createAccountOrLoginSubmitBtn.addEventListener("click", (e) => {
+        this.createAccountOrLoginSubmitBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            for (let i = 0; i < createAccountOrLoginCardContainers.length; i++) {
+            for (let i = 0; i < this.createAccountOrLoginCardContainers.length; i++) {
                 const inputs =
-                    createAccountOrLoginCardContainers[i].querySelectorAll("[form-input]");
+                    this.createAccountOrLoginCardContainers[i].querySelectorAll("[form-input]");
                 for (let j = 0; j < inputs.length; j++) {
                     if (
                         inputs[j].value.trim() === "" ||
@@ -213,9 +301,9 @@ class Card {
                     ) {
                         inputs[j].style.boxShadow = `0 2px 0 0  ${errorColor}`;
                         const scrollLength =
-                            createAccountOrLoginCardContainers[i].offsetWidth *
-                            (createAccountOrLoginCardContainers.length - 1 - i);
-                        createAccountOrLoginCardsContainer.scrollBy({
+                            this.createAccountOrLoginCardContainers[i].offsetWidth *
+                            (this.createAccountOrLoginCardContainers.length - 1 - i);
+                        this.createAccountOrLoginCardsContainer.scrollBy({
                             top: 0,
                             left: scrollLength,
                             behavior: "smooth",
@@ -242,12 +330,10 @@ class Card {
                 }
             }
 
-            const passwordInput = document.getElementById("student-password");
-            const surePasswordInput = document.getElementById("student-sure-password");
-            if (document.body.contains(surePasswordInput)) {
-                if (passwordInput.value !== surePasswordInput.value) {
-                    surePasswordInput.style.boxShadow = `0 2px 0 0  ${errorColor}`;
-                }
+
+            if (!this.componentExisted(this.surePasswordInput)) return;
+            if (this.passwordInput.value !== this.surePasswordInput.value) {
+                this.surePasswordInput.style.boxShadow = `0 2px 0 0  ${errorColor}`;
             }
         });
     }
@@ -258,19 +344,13 @@ class Card {
      * Method to handle the click event of the back button.
      */
     backBtnCardAction() {
-        const backBtnsCards = document.querySelectorAll("[back-btn]");
-        const createAccountOrLoginCardsContainer = document.getElementById(
-            "create-account-or-login-cards-container"
-        );
-        const createAccountOrLoginCardContainers = document.querySelectorAll(
-            ".create-account-or-login-card-container"
-        );
-        backBtnsCards.forEach((backBtnCard) => {
+
+        this.backBtnsCards.forEach((backBtnCard) => {
             backBtnCard.addEventListener("click", (e) => {
                 e.preventDefault();
-                const scrollLength = createAccountOrLoginCardContainers[0].offsetWidth;
+                const scrollLength = this.createAccountOrLoginCardContainers[0].offsetWidth;
 
-                createAccountOrLoginCardsContainer.scrollBy({
+                this.createAccountOrLoginCardsContainer.scrollBy({
                     top: 0,
                     left: scrollLength,
                     behavior: "smooth",
@@ -285,19 +365,12 @@ class Card {
      * Method to handle the click event of the next button.
      */
     nextBtnCardAction() {
-        const nextBtnsCards = document.querySelectorAll("[next-btn]");
-        const createAccountOrLoginCardsContainer = document.getElementById(
-            "create-account-or-login-cards-container"
-        );
-        const createAccountOrLoginCardContainers = document.querySelectorAll(
-            ".create-account-or-login-card-container"
-        );
-        nextBtnsCards.forEach((nextBtnCard) => {
+        this.nextBtnsCards.forEach((nextBtnCard) => {
             nextBtnCard.addEventListener("click", (e) => {
                 e.preventDefault();
-                const scrollLength = createAccountOrLoginCardContainers[0].offsetWidth;
+                const scrollLength = this.createAccountOrLoginCardContainers[0].offsetWidth;
 
-                createAccountOrLoginCardsContainer.scrollBy({
+                this.createAccountOrLoginCardsContainer.scrollBy({
                     top: 0,
                     left: -1 * scrollLength,
                     behavior: "smooth",
@@ -312,8 +385,8 @@ class Card {
      * Method to handle the click event of the first card go back button.
      */
     firstCardGoBackBtnAction() {
-        const firstCardGoBackBtn = document.getElementById("first-card-go-back-btn");
-        firstCardGoBackBtn.addEventListener("click", () => {
+        if (!this.componentExisted(this.firstCardGoBackBtn)) return;
+        this.firstCardGoBackBtn.addEventListener("click", () => {
             window.history.back();
         });
     }
@@ -329,95 +402,95 @@ class Card {
      * The method also handles the infinite scrolling effect by removing the first image from each row and
      * appending it to the end of the row.
      */
-    createBackgroundMovingImages() {
-        const body = document.body;
-        body.style.maxHeight = "100vh";
-        body.style.overflow = "hidden";
+    // createBackgroundMovingImages() {
+    //     const body = document.body;
+    //     body.style.maxHeight = "100vh";
+    //     body.style.overflow = "hidden";
 
-        const backgroundStudentImages = [
-            "./assets/backgroundStudent1.jpg",
-            "./assets/backgroundStudent2.jpg",
-            "./assets/backgroundStudent3.jpg",
-            "./assets/backgroundStudent4.jpg",
-            "./assets/backgroundStudent5.jpg",
-            "./assets/backgroundStudent6.jpg",
-            "./assets/backgroundStudent7.jpg",
-            "./assets/backgroundStudent8.jpg",
-            "./assets/backgroundStudent9.jpg",
-            "./assets/backgroundStudent10.jpg",
-            "./assets/backgroundStudent11.jpg",
-            "./assets/backgroundStudent12.jpg",
-            "./assets/backgroundStudent13.jpg",
-            "./assets/backgroundStudent14.jpg",
-            "./assets/backgroundStudent15.jpg",
-            "./assets/backgroundStudent16.jpg",
-            "./assets/backgroundStudent17.jpg",
-            "./assets/backgroundStudent18.jpg",
-            "./assets/backgroundStudent19.jpg",
-            "./assets/backgroundStudent20.jpg",
-            "./assets/backgroundStudent21.jpg",
-            "./assets/backgroundStudent22.jpg",
-            "./assets/backgroundStudent23.jpg",
-            "./assets/backgroundStudent24.jpg",
-            "./assets/backgroundStudent25.jpg",
-            "./assets/backgroundStudent26.jpg",
-        ];
+    //     const backgroundStudentImages = [
+    //         "./assets/backgroundStudent1.jpg",
+    //         "./assets/backgroundStudent2.jpg",
+    //         "./assets/backgroundStudent3.jpg",
+    //         "./assets/backgroundStudent4.jpg",
+    //         "./assets/backgroundStudent5.jpg",
+    //         "./assets/backgroundStudent6.jpg",
+    //         "./assets/backgroundStudent7.jpg",
+    //         "./assets/backgroundStudent8.jpg",
+    //         "./assets/backgroundStudent9.jpg",
+    //         "./assets/backgroundStudent10.jpg",
+    //         "./assets/backgroundStudent11.jpg",
+    //         "./assets/backgroundStudent12.jpg",
+    //         "./assets/backgroundStudent13.jpg",
+    //         "./assets/backgroundStudent14.jpg",
+    //         "./assets/backgroundStudent15.jpg",
+    //         "./assets/backgroundStudent16.jpg",
+    //         "./assets/backgroundStudent17.jpg",
+    //         "./assets/backgroundStudent18.jpg",
+    //         "./assets/backgroundStudent19.jpg",
+    //         "./assets/backgroundStudent20.jpg",
+    //         "./assets/backgroundStudent21.jpg",
+    //         "./assets/backgroundStudent22.jpg",
+    //         "./assets/backgroundStudent23.jpg",
+    //         "./assets/backgroundStudent24.jpg",
+    //         "./assets/backgroundStudent25.jpg",
+    //         "./assets/backgroundStudent26.jpg",
+    //     ];
 
-        const animationTime = 50;
-        const numOfRows = Math.ceil(window.screen.height / 150);
-        const backgroundImageDimension = screen.height / numOfRows;
-        const numOfCols = Math.ceil(screen.width / backgroundImageDimension) + 1;
-        const animationDelayInMileSeconds = (animationTime / numOfCols) * 1000;
+    //     const animationTime = 50;
+    //     const numOfRows = Math.ceil(window.screen.height / 150);
+    //     const backgroundImageDimension = screen.height / numOfRows;
+    //     const numOfCols = Math.ceil(screen.width / backgroundImageDimension) + 1;
+    //     const animationDelayInMileSeconds = (animationTime / numOfCols) * 1000;
 
-        const root = document.documentElement;
-        root.style.setProperty(
-            "--background-image-dimension",
-            `${backgroundImageDimension}px`
-        );
-        root.style.setProperty("--number-of-background-images-per-row", numOfCols);
+    //     const root = document.documentElement;
+    //     root.style.setProperty(
+    //         "--background-image-dimension",
+    //         `${backgroundImageDimension}px`
+    //     );
+    //     root.style.setProperty("--number-of-background-images-per-row", numOfCols);
 
-        const backgroundMovingImages = document.createElement("div");
-        backgroundMovingImages.classList.add("background-moving-images");
+    //     const backgroundMovingImages = document.createElement("div");
+    //     backgroundMovingImages.classList.add("background-moving-images");
 
-        for (let i = 0; i < numOfRows; i++) {
-            const row = document.createElement("div");
-            row.classList.add("background-moving-images-row");
-            let rndIndex;
+    //     for (let i = 0; i < numOfRows; i++) {
+    //         const row = document.createElement("div");
+    //         row.classList.add("background-moving-images-row");
+    //         let rndIndex;
 
-            for (let j = 0; j < numOfCols; j++) {
-                let rndImg;
-                do {
-                    rndImg = Math.round(
-                        Math.random() * (backgroundStudentImages.length - 1)
-                    );
-                } while (rndIndex == rndImg);
-                rndIndex = rndImg;
-                const image = document.createElement("img");
-                image.src = backgroundStudentImages[rndIndex];
-                image.alt = "background student image";
-                image.classList.add("background-image");
-                image.style.left = `${j * backgroundImageDimension}px`;
-                image.style.pointerEvents = "none";
-                image.style.animation = `backgroundImageScrollLeft ${animationTime}s linear infinite`;
-                image.setAttribute("background-moving-image", "");
-                row.appendChild(image);
-            }
-            backgroundMovingImages.appendChild(row);
-        }
+    //         for (let j = 0; j < numOfCols; j++) {
+    //             let rndImg;
+    //             do {
+    //                 rndImg = Math.round(
+    //                     Math.random() * (backgroundStudentImages.length - 1)
+    //                 );
+    //             } while (rndIndex == rndImg);
+    //             rndIndex = rndImg;
+    //             const image = document.createElement("img");
+    //             image.src = backgroundStudentImages[rndIndex];
+    //             image.alt = "background student image";
+    //             image.classList.add("background-image");
+    //             image.style.left = `${j * backgroundImageDimension}px`;
+    //             image.style.pointerEvents = "none";
+    //             image.style.animation = `backgroundImageScrollLeft ${animationTime}s linear infinite`;
+    //             image.setAttribute("background-moving-image", "");
+    //             row.appendChild(image);
+    //         }
+    //         backgroundMovingImages.appendChild(row);
+    //     }
 
-        body.appendChild(backgroundMovingImages);
+    //     body.appendChild(backgroundMovingImages);
 
-        const rows = document.querySelectorAll(".background-moving-images-row");
+    //     const rows = document.querySelectorAll(".background-moving-images-row");
 
-        const infiniteScrollToLeftInterval = setInterval(function () {
-            rows.forEach((row) => {
-                const firstChild = row.firstElementChild;
-                row.removeChild(firstChild);
-                row.appendChild(firstChild);
-                firstChild.style.left = `${(numOfCols - 1) * backgroundImageDimension}px`;
-            });
-        }, animationDelayInMileSeconds);
-    }
+    //     const infiniteScrollToLeftInterval = setInterval(function () {
+    //         rows.forEach((row) => {
+    //             const firstChild = row.firstElementChild;
+    //             row.removeChild(firstChild);
+    //             row.appendChild(firstChild);
+    //             firstChild.style.left = `${(numOfCols - 1) * backgroundImageDimension}px`;
+    //         });
+    //     }, animationDelayInMileSeconds);
+    // }
 
     /**
      * @author Hazem Sabry 
@@ -430,37 +503,36 @@ class Card {
      * When a keydown event occurs with the "Backspace" key, it focuses the previous input field if the current input field is empty.
      */
     OTPAutoChangeInputOnPress() {
-        const OTPInputContainer = document.getElementById("OTP-input-container");
-        if (document.body.contains(OTPInputContainer)) {
-            const elsInput = [...OTPInputContainer.children];
-            const len = elsInput.length;
+        if (!this.componentExisted(this.OTPInputContainer)) return;
+        const elsInput = [...this.OTPInputContainer.children];
+        const len = elsInput.length;
 
-            const handlePaste = (ev) => {
-                const clip = ev.clipboardData.getData('text');     // Get clipboard data
-                const pin = clip.replace(/\s|-/g, "");             // Sanitize string
-                const ch = [...pin];                               // Create array of chars
-                elsInput.forEach((el, i) => el.value = ch[i] ?? ""); // Populate inputs
-                elsInput[Math.min(len, pin.length) - 1]?.focus();  // Focus input
-            };
+        const handlePaste = (ev) => {
+            const clip = ev.clipboardData.getData('text');     // Get clipboard data
+            const pin = clip.replace(/\s|-/g, "");             // Sanitize string
+            const ch = [...pin];                               // Create array of chars
+            elsInput.forEach((el, i) => el.value = ch[i] ?? ""); // Populate inputs
+            elsInput[Math.min(len, pin.length) - 1]?.focus();  // Focus input
+        };
 
-            const handleInput = (ev) => {
-                const elInp = ev.currentTarget;
-                const i = elsInput.indexOf(elInp);
-                if (elInp.value && (i + 1) % len) elsInput[i + 1]?.focus();  // focus next
-            };
+        const handleInput = (ev) => {
+            const elInp = ev.currentTarget;
+            const i = elsInput.indexOf(elInp);
+            if (elInp.value && (i + 1) % len) elsInput[i + 1]?.focus();  // focus next
+        };
 
-            const handleKeyDn = (ev) => {
-                const elInp = ev.currentTarget
-                const i = elsInput.indexOf(elInp);
-                if (!elInp.value && ev.key === "Backspace" && i) elsInput[i - 1]?.focus(); // Focus previous
-            };
+        const handleKeyDn = (ev) => {
+            const elInp = ev.currentTarget
+            const i = elsInput.indexOf(elInp);
+            if (!elInp.value && ev.key === "Backspace" && i) elsInput[i - 1]?.focus(); // Focus previous
+        };
 
-            elsInput.forEach(elInp => {
-                elInp.addEventListener("paste", handlePaste);   // Handle pasting
-                elInp.addEventListener("input", handleInput);   // Handle typing
-                elInp.addEventListener("keydown", handleKeyDn); // Handle deleting
-            });
-        }
+        elsInput.forEach(elInp => {
+            elInp.addEventListener("paste", handlePaste);   // Handle pasting
+            elInp.addEventListener("input", handleInput);   // Handle typing
+            elInp.addEventListener("keydown", handleKeyDn); // Handle deleting
+        });
+
     }
 
     /**
@@ -469,18 +541,14 @@ class Card {
      * Method to handle the click event of the go to OTP page button.
      * Navigates to the OTPPage.html when the button is clicked.
      */
-    goToOTPPageBtn() {
-        // Get the go to OTP page button element
-        const goToOTPPageBtn = document.getElementById("go-to-OTP-page-btn");
-
+    goToOTPPageBtnAction() {
         // Check if the button exists in the document body
-        if (document.body.contains(goToOTPPageBtn)) {
-            // Add a click event listener to the button
-            goToOTPPageBtn.addEventListener("click", () => {
-                // Navigate to the OTPPage.html when the button is clicked
-                window.location.href = "OTPPage.html";
-            })
-        }
+        if (!this.componentExisted(this.goToOTPPageBtn)) return;
+        // Add a click event listener to the button
+        this.goToOTPPageBtn.addEventListener("click", () => {
+            // Navigate to the OTPPage.html when the button is clicked
+            window.location.href = "OTPPage.html";
+        })
     }
 
     /**
@@ -488,24 +556,12 @@ class Card {
      * @gmail hazemsabry2002@gmail.com
      * Method to handle the click event of the go back button on the first card.
      */
-    forgetPasswordBtn() {
-        const forgetPasswordBtn = document.getElementById("forget-password-btn");
-        if (document.body.contains(forgetPasswordBtn)) {
-            this.forgetPasswordBtnAction();
-        }
-    }
 
     /**
      * @author Hazem Sabry 
      * @gmail hazemsabry2002@gmail.com
      * Method to handle the click event of the go back button on the first card.
      */
-    firstCardGoBackBtn() {
-        const firstCardGoBackBtn = document.getElementById("first-card-go-back-btn");
-        if (document.body.contains(firstCardGoBackBtn)) {
-            this.firstCardGoBackBtnAction();
-        }
-    }
 
     /**
      * @author Hazem Sabry 
@@ -513,8 +569,7 @@ class Card {
      * Method to handle the click event of the next button.
      */
     nextBtnCard() {
-        const nextBtnsCards = document.querySelectorAll("[next-btn]");
-        if (nextBtnsCards.length > 0) {
+        if (this.nextBtnsCards.length > 0) {
             this.nextBtnCardAction();
         }
     }
@@ -525,8 +580,7 @@ class Card {
      * Method to handle the click event of the next button.
      */
     backBtnCard() {
-        const backBtnsCards = document.querySelectorAll("[back-btn]");
-        if (backBtnsCards.length > 0) {
+        if (this.backBtnsCards.length > 0) {
             this.backBtnCardAction();
         }
     }
@@ -536,12 +590,9 @@ class Card {
      * @gmail hazemsabry2002@gmail.com
      * Toggle the visibility of the password input field.
      */
-    togglePasswordVisibilityBtn() {
-        const togglePasswordVisibilityBtn = document.getElementById("eye-icon-container-password");
-        if (document.body.contains(togglePasswordVisibilityBtn)) {
-            const passwordInput = document.getElementById("student-password");
-            this.togglePasswordVisibility(togglePasswordVisibilityBtn, passwordInput);
-        }
+    togglePasswordVisibilityBtnAction() {
+        if (!this.componentExisted(this.togglePasswordVisibilityBtn)) return;
+        this.togglePasswordVisibility(this.togglePasswordVisibilityBtn, this.passwordInput);
     }
 
     /**
@@ -549,12 +600,9 @@ class Card {
      * @gmail hazemsabry2002@gmail.com
      * Toggle the visibility of the password input field.
      */
-    toggleSurePasswordVisibilityBtn() {
-        const togglePasswordVisibilityBtn = document.getElementById("eye-icon-container-sure-password");
-        if (document.body.contains(togglePasswordVisibilityBtn)) {
-            const passwordInput = document.getElementById("student-sure-password");
-            this.togglePasswordVisibility(togglePasswordVisibilityBtn, passwordInput);
-        }
+    toggleSurePasswordVisibilityBtnAction() {
+        if (!this.componentExisted(this.toggleSurePasswordVisibilityBtn)) return;
+        this.togglePasswordVisibility(this.toggleSurePasswordVisibilityBtn, this.surePasswordInput);
     }
 
 }
@@ -562,15 +610,23 @@ class Card {
 const informationCard = new Card();
 
 informationCard.createAccountOrLoginScreenResize();
-informationCard.firstCardGoBackBtn();
+informationCard.firstCardGoBackBtnAction();
 informationCard.nextBtnCard();
 informationCard.backBtnCard();
 informationCard.createAccountOrLoginBtnCardSubmitForm();
 informationCard.saveInputValueToSession();
 informationCard.getInputValueFromSession();
-informationCard.togglePasswordVisibilityBtn();
-informationCard.toggleSurePasswordVisibilityBtn();
-informationCard.forgetPasswordBtn();
-informationCard.goToOTPPageBtn();
+informationCard.togglePasswordVisibilityBtnAction();
+informationCard.toggleSurePasswordVisibilityBtnAction();
+informationCard.forgetPasswordBtnAction();
+informationCard.goToOTPPageBtnAction();
 informationCard.OTPAutoChangeInputOnPress();
-mobileGoBackBtnAction();
+
+/**
+ * @author Hazem Sabry
+ * @gmail hazemsabry2002@gmail.com
+ * Method to handle the click event of the go back button on the first card.
+ */
+if (document.body.contains(document.getElementById("mobile-go-back-btn"))) {
+    mobileGoBackBtnAction();
+}

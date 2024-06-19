@@ -169,9 +169,19 @@ body>nav>.page-header>.page-title {
     background-color: var(--background-color);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * This CSS rule is responsible for styling the go back button in the page header.
+ * It includes the cursor property to indicate that the button is clickable,
+ * and the transform property to apply a rotation transformation based on the value of the --go-back-heder-btn-transform-rotate variable.
+ *
+ * @section page-header
+ * @memberof nav
+ */
 body>nav>.page-header>.page-title>svg{
     cursor: pointer;
-        transform: var(--go-back-heder-btn-transform-rotate);
+    transform: var(--go-back-heder-btn-transform-rotate);
 }
 
 /************************************************************************************************************************************* create-account-or-login-logo-section ***************************************************************************************************************************/

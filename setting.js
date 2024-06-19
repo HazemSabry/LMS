@@ -1,8 +1,13 @@
+/**
+ * @author Hazem Sabry
+ * @email hazemsabry20002@gmail.com
+ * 
+ * Sets the event listeners for each menu button to navigate to the corresponding page when clicked.
+ */
 class Settings {
     /**
      * @type {HTMLElement} - The navigation bar element.
      */
-    nav;
     nav;
     /**
     * @type {HTMLElement} - The navbar element.
@@ -16,13 +21,21 @@ class Settings {
      * @type {HTMLElement} - The mobile navigation header element.
      */
     mobileNavHeader;
-
+    /**
+     * @type {HTMLElement} - The page body element.
+     */
     logoSection;
-
+    /**
+     * @type {HTMLElement} - The mobile profile element.
+     */
     nightModeCheckbox;
-
+    /**
+     * @type {HTMLElement} - The desktop profile element.
+     */
     technicalSupportBtnCheckbox;
-
+    /**
+     * @type {HTMLElement} - The technical support button element.
+     */
     technicalSupportBtn;
 
     constructor() {
@@ -36,6 +49,14 @@ class Settings {
         this.technicalSupportBtn = document.getElementById("technical-support-btn");
     }
 
+    /**
+     * @author Hazem Sabry
+     * @email hazemsabry20002@gmail.com
+     * 
+     * Choose whether to display the mobile navigation header or the desktop navigation bar.
+     *
+     * @returns {void} - This method does not return any value.
+     */
     chooseMobileDisplayOrDesktopDisplay() {
         if (screen.width < MAX_MOBILE_SCREEN_WIDTH) {
             this.mobileNavHeader.style.display = "block";
@@ -50,6 +71,14 @@ class Settings {
         }
     }
 
+    /**
+     * @author Hazem Sabry
+     * @email hazemsabry20002@gmail.com
+     *
+     * Saves the changes made to the settings, such as the night mode and technical support button checkboxes.
+     *
+     * @returns {void} - This method does not return any value.
+     */
     saveChanges() {
         this.nightModeCheckbox.addEventListener("click", (e) => {
             localStorage.setItem(e.target.name, e.target.checked);
@@ -60,6 +89,14 @@ class Settings {
         })
     }
 
+    /**
+     * @author Hazem Sabry
+     * @email hazemsabry20002@gmail.com
+     *
+     * Retrieves the saved settings values from localStorage and updates the checkboxes accordingly.
+     *
+     * @returns {void} - This method does not return any value.
+     */
     getSettingsValue() {
         this.nightModeCheckbox.checked = localStorage.getItem("night-mode-checkbox") === "true";
         this.technicalSupportBtnCheckbox.checked = localStorage.getItem("technical-support-btn-checkbox") === "true";

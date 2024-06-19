@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Deposit</title>
     <link rel="stylesheet" href="common.css" />
     <link rel="stylesheet" href="nav.css">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="deposit.css">
     <script src="common.js" defer></script>
+    <script src="createAccountPage.js" defer></script>
     <script src="nav.js" defer></script>
-    <script src="home.js" defer></script>
+    <script src="deposit.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap" rel="stylesheet">
@@ -221,121 +222,91 @@
             </div>
         </div>
     </nav>
-    <div class="page-body" id="page-body">
-        <section class="stories-section">
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-            <div class="story-container">
-                <div class="story">
-                </div>
-            </div>
-        </section>
-        <section class="teachers-section">
-            <p class="title" lang="ar">المدرسين</p>
-            <div class="body">
-                <div class="teacher-image-container"></div>
-                <div class="teacher-image-container"></div>
-                <div class="teacher-image-container"></div>
-                <div class="teacher-image-container"></div>
-                <div class="teacher-image-container"></div>
-                <div class="teacher-image-container"></div>
-                <div class="teacher-image-container"></div>
-                <div class="teacher-image-container"></div>
-                <div class="teacher-image-container"></div>
-                <div class="teacher-image-container"></div>
-                <div class="teacher-image-container"></div>
-            </div>
-        </section>
-        <section class="ads-section">
-            <p class="title" lang="ar">اعلان</p>
-            <div class="body" id="ads-container">
-                <div class="ad-container" id="ad1"></div>
-                <div class="ad-container" id="ad2"></div>
-                <div class="ad-container" id="ad3"></div>
-                <div class="ad-container" id="ad4"></div>
-                <div class="ad-container" id="ad5"></div>
-                <div class="ad-container" id="ad6"></div>
-                <div class="ad-container" id="ad7"></div>
-                <div class="ad-container" id="ad8"></div>
-            </div>
-            <div class="indicators-container" id="indicators-container">
+    <div class="create-account-or-login-cards-container" id="create-account-or-login-cards-container" page-body>
+        <div class="create-account-or-login-card-container">
+            <div class="create-account-or-login-card">
+                <header class="card-header" id="card-header">
+                    <div class="page-title" lang="ar">
+                        <svg width="48px" height="48px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path d="M12 11H14.5H17" stroke="#fff" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                </path>
+                                <path d="M12 7H14.5H17" stroke="#fff" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                </path>
+                                <path
+                                    d="M8 15V3.6C8 3.26863 8.26863 3 8.6 3H20.4C20.7314 3 21 3.26863 21 3.6V17C21 19.2091 19.2091 21 17 21V21"
+                                    stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                                <path
+                                    d="M5 15H8H12.4C12.7314 15 13.0031 15.2668 13.0298 15.5971C13.1526 17.1147 13.7812 21 17 21H8H6C4.34315 21 3 19.6569 3 18V17C3 15.8954 3.89543 15 5 15Z"
+                                    stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </g>
+                        </svg>
+                        <p>
+                            شحن الرصيد - أ
+                            <span lang="ar"></span>
+                        </p>
+                    </div>
+                </header>
+                <section class="create-account-or-login-form-section">
+                    <form class="information">
+                        <div class="input-container">
+                            <select name="teacher" id="select-teacher" title="Select your teacher" form-input required>
+                                <option value="" lang="ar" disabled selected>اختر المدرس</option>
+                                <option value="حسن النجار" lang="ar">حسن النجار</option>
+                                <option value="مصطفي عرفة" lang="ar">مصطفي عرفة</option>
+                                <option value="محمد فؤاد" lang="ar">محمد فؤاد</option>
+                                <option value="أشرف جابر" lang="ar">أشرف جابر</option>
+                                <option value="عبدالرحمن علام" lang="ar">عبدالرحمن علام</option>
+                                <option value="اسلام عبد الغني" lang="ar">اسلام عبد الغني</option>
+                                <option value="عاليا علام" lang="ar">عاليا علام</option>
+                                <option value="" lang="ar">أحمد الباشا</option>
+                            </select>
+                        </div>
+                        <p class="title">
+                            <span class="text" lang="ar">برجاء كتابة السيريل و الكود كما هو موضح مع مراعاة الحروف و
+                                الارقام</span>
+                        </p>
+                        <div class="input-container OTP-input-container" id="deposit-OTP-input-container">
+                            <input name="OTP-1st-number" type="text" id="OTP-1st-number" placeholder="#####" form-input
+                                required maxlength="5" size="5" />
+                            <input name="OTP-2nd-number" type="text" id="OTP-2nd-number" placeholder="#####" form-input
+                                required maxlength="5" size="5" />
+                            <input name="OTP-3rd-number" type="text" id="OTP-3rd-number" placeholder="#####" form-input
+                                required maxlength="5" size="5" />
+                        </div>
+                        <div class="input-container">
+                            <input name="serial-number" type="number" lang="ar" placeholder="السريال" form-input
+                                required />
+                        </div>
+                        <div class="form-buttons-container form-stack-buttons-container">
+                            <button type="button" class="next-btn next-stack-btn" lang="ar"
+                                id="create-account-or-login-submit-btn">شحن الرصيد 🗸</button>
+                        </div>
 
+                        <div class="warning-message" lang="ar" id="warning-message">
+                            <svg width="24px" height="24px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
+                                fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path fill="#BA1A1A"
+                                        d="M512 64a448 448 0 1 1 0 896 448 448 0 0 1 0-896zm0 192a58.432 58.432 0 0 0-58.24 63.744l23.36 256.384a35.072 35.072 0 0 0 69.76 0l23.296-256.384A58.432 58.432 0 0 0 512 256zm0 512a51.2 51.2 0 1 0 0-102.4 51.2 51.2 0 0 0 0 102.4z">
+                                    </path>
+                                </g>
+                            </svg>
+                            / تأكيد سوف تقوم بالشحن ل: أ<span lang="ar"></span>
+                        </div>
+                    </form>
+                </section>
             </div>
-        </section>
+        </div>
     </div>
     <button class="technical-support-btn" lang="ar" id="technical-support-btn">
         <svg fill="#220F46" width="30px" height="30px" viewBox="0 0 24 24" id="chat-alt-2" data-name="Flat Color"
@@ -352,7 +323,7 @@
     </button>
     <div class="bottom-nav" id="bottom-nav">
         <div class="option" id="home">
-            <button type="button" title="Home" class="active">
+            <button type="button" title="Home">
                 <svg width="36px" height="36px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
                     fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -385,7 +356,7 @@
             <p lang="ar">الكورسات</p>
         </div>
         <div class="option" id="Deposit">
-            <button type="button" title="Deposit Money">
+            <button type="button" title="Deposit Money" class="active">
                 <svg width="36px" height="36px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>

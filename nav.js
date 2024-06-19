@@ -44,16 +44,45 @@ class Nav {
      * @type {HTMLElement} - The mobile go back button element.
      */
     mobileGoBackBtn;
-
+    /**
+     * @type {HTMLElement} - The home page menu button element.
+     */
     homePagePageMenuBtn;
+    /**
+     * @type {HTMLElement} - The courses page menu button element.
+     */
     coursesPageMenuBtn;
+    /**
+     * @type {HTMLElement} - The profile page menu button element.
+     */
     profilePageMenuBtn;
+    /**
+     * @type {HTMLElement} - The information page menu button element.
+     */
     informationPageMenuBtn;
+    /**
+     * @type {HTMLElement} - The deposit page menu button element.
+     */
     depositPageMenuBtn;
+    /**
+     * @type {HTMLElement} - The FAQ page menu button element.
+     */
     FAQPageMenuBtn;
+    /**
+     * @type {HTMLElement} - The privacy policy page menu button element.
+     */
     privacyPolicyPageMenuBtn;
+    /**
+     * @type {HTMLElement} - The user agreement page menu button element.
+     */
     userAgreementPageMenuBtn;
+    /**
+     * @type {HTMLElement} - The user agreement page menu button element.
+     */
     technicalSupportPageMenuBtn;
+    /**
+     * @type {HTMLElement} - The about app page menu button element.
+     */
     aboutAppPageMenuBtn;
 
     /**
@@ -61,7 +90,7 @@ class Nav {
      */
     constructor() {
         this.nav = document.querySelector("nav");
-        this.pageBody = document.getElementById("page-body");
+        this.pageBody = document.getElementById("page-body") || document.querySelector("[page-body]");
         const navBar = this.nav.querySelector(".nav");
         this.mobileMenu = navBar.querySelector(".menu-side");
         this.desktopMenu = navBar.querySelector(".menu-dropdown");
@@ -180,7 +209,19 @@ class Nav {
         }
     }
 
+    /**
+     * @author Hazem Sabry
+     * @email hazemsabry20002@gmail.com
+     * Sets the event listeners for each menu button to navigate to the corresponding page when clicked.
+     *
+     */
     setMenuBtnAction() {
+        /**
+         * @author Hazem Sabry
+         * @email hazemsabry20002@gmail.com
+         * 
+        * Adds a click event listener to the home page menu button that navigates to the HomePage.html page.
+        */
         this.homePagePageMenuBtn.forEach((btn) => {
             btn.addEventListener("click", () => {
                 location.href = "./HomePage.html"

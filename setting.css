@@ -69,6 +69,7 @@ body>.page-body>.logo-section>.logo>.center-triangular {
 /**
  * @author Hazem Sabry 
  * @gmail hazemsabry2002@gmail.com 
+ *  
  * This section contains the styling for the logo title within the create account or login card.
  *
  * @section create-account-or-login-logo-section
@@ -83,6 +84,17 @@ body>.page-body>.logo-section>.logo-title {
 }
 
 /************************************************************************************************************************************* setting-section ***************************************************************************************************************************/
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ * 
+ * This CSS block is used to style the setting section of the page.
+ * It sets the padding, text alignment, flex direction, and gap for the setting section.
+ * The setting section is a container for various elements related to settings or preferences.
+ *
+ * @memberof page-body
+ * @section setting-section
+ */
 body>.page-body>.setting-section {
     padding: 1rem;
     text-align: var(--text-align);
@@ -91,10 +103,29 @@ body>.page-body>.setting-section {
     gap: 1rem;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com
+ *  
+ * @description This CSS rule is used to style the setting title within the setting section of the page.
+ * @memberof page-body
+ * @section setting-section
+ */
 body>.page-body>.setting-section>.setting-title{
     font-size: calc(var(--font-size)*1.4);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ *  
+ * @description This CSS block is used to style the setting section of the page.
+ * It sets the padding, text alignment, flex direction, and gap for the setting section.
+ * The setting section is a container for various elements related to settings or preferences.
+ *
+ * @memberof page-body
+ * @section setting-section
+ */
 body>.page-body>.setting-section>.btn-container{
     padding: 1rem;
     display: grid;
@@ -103,6 +134,14 @@ body>.page-body>.setting-section>.btn-container{
     border-radius: 20px ;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ *  
+ * @description This CSS block is used to apply hover and active styles to the setting section's button container.
+ * @memberof page-body
+ * @section setting-section
+ */
 body>.page-body>.setting-section>.btn-container:hover{
     background-color: #dbdada47;
 }
@@ -111,6 +150,17 @@ body>.page-body>.setting-section>.btn-container:active {
     background-color: #dbdada68;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ *  
+ * This CSS block is used to style the setting section of the page.
+ * It sets the padding, text alignment, flex direction, and gap for the setting section.
+ * The setting section is a container for various elements related to settings or preferences.
+ *
+ * @memberof page-body
+ * @section setting-section
+ */
 body>.page-body>.setting-section>.btn-container>label{
     display: flex;
     flex-direction: var(--page-flex-direction);
@@ -118,6 +168,17 @@ body>.page-body>.setting-section>.btn-container>label{
     align-items: center;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ *  
+ * This CSS block is used to style the setting section's button container's label's text.
+ * It sets the display, flex direction, gap, align items, and width for the text.
+ * The text is used to display the button's label.
+ *
+ * @memberof page-body
+ * @section setting-section
+ */
 body>.page-body>.setting-section>.btn-container>label>.btn-label{
     display: flex;
     flex-direction: var(--page-flex-direction);
@@ -127,10 +188,32 @@ body>.page-body>.setting-section>.btn-container>label>.btn-label{
     cursor: pointer;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ *  
+ * This CSS block is used to style the setting section's button container's label's text.
+ * It sets the display, flex direction, gap, align items, and width for the text.
+ * The text is used to display the button's label.
+ *
+ * @memberof page-body
+ * @section setting-section
+ */
 body>.page-body>.setting-section>.btn-container>label>.btn-label>.text>.description{
     color: gray;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ *  
+ * This CSS block is used to style the setting section's button container's label's text.
+ * It sets the display, flex direction, gap, align items, and width for the text.
+ * The text is used to display the button's label.
+ *
+ * @memberof page-body
+ * @section setting-section
+ */
 body>.page-body>.setting-section>.btn-container>label>button{
     --width:4rem;
     background-color: rgb(203, 203, 203);
@@ -146,6 +229,17 @@ body>.page-body>.setting-section>.btn-container>label>button{
     transition: all 0.3s linear;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ *  
+ * This CSS block is used to style the setting section's button container' s label's button' s circle. 
+ * It sets the width, height, background color, border radius, position, right, and transition properties. 
+ * The circle is used to represent the toggle state of the button. 
+ *  
+ * @memberof page-body
+ * @section setting-section
+ */
 body>.page-body>.setting-section>.btn-container>label>button>.circle{
     --diminution:1.1rem;
     width: var(--diminution);
@@ -157,16 +251,46 @@ body>.page-body>.setting-section>.btn-container>label>button>.circle{
     transition: all 0.3s linear;
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ *  
+ * This CSS block is used to apply styles to the button container when the input is checked.
+ * It changes the background color and direction of the flex container.
+ *
+ * @memberof page-body
+ * @section setting-section
+ */
 body>.page-body>.setting-section>.btn-container:has(input:checked)>label>button{
     background-color: var(--btn-background-color);
     flex-direction: var(--page-flex-direction);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ *  
+ * This CSS block is used to apply styles to the circle within the button container when the input is checked.
+ * It moves the circle to the right and changes its background color.
+ *
+ * @memberof page-body
+ * @section setting-section
+ */
 body>.page-body>.setting-section>.btn-container:has(input:checked)>label>button>.circle{
     right: 60%;
     background-color: var(--btn-color);
 }
 
+/**
+ * @author Hazem Sabry 
+ * @gmail hazemsabry2002@gmail.com 
+ *  
+ * This CSS block is used to hide the input element within the button container.
+ * It sets the width, height, opacity, and z-index of the input to 0.
+ *
+ * @memberof page-body
+ * @section setting-section
+ */
 body>.page-body>.setting-section>.btn-container>input{
     width: 0;
     height: 0;
